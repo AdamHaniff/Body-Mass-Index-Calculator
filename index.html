@@ -50,8 +50,108 @@
               </label>
             </div>
           </div>
+          <div class="metric-measurements">
+            <div class="metric">
+              <label class="metric__label" for="height"
+                >Height
+                <div class="metric__input-container">
+                  <input
+                    class="metric__input"
+                    type="text"
+                    id="height"
+                    name="height"
+                    pattern="[0-9]*"
+                  />
+                  <span class="metric-unit">cm</span>
+                </div>
+              </label>
+            </div>
+            <div class="metric">
+              <label class="metric__label" for="weight">
+                Weight
+                <div class="metric__input-container">
+                  <input
+                    class="metric__input"
+                    type="text"
+                    id="weight"
+                    name="weight"
+                    pattern="[0-9]*"
+                  />
+                  <span class="metric-unit">kg</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <!-- <div class="imperial-measurements">
+            <div class="imperial">
+              <label class="imperial__label" for="height"
+                >Height
+                <div class="imperial__input-container">
+                  <input
+                    class="imperial__input"
+                    type="text"
+                    id="height"
+                    name="feet"
+                    pattern="[0-9]*"
+                  />
+                  <span class="imperial-unit">ft</span>
+                </div>
+                <div class="imperial__input-container">
+                  <input
+                    class="imperial__input"
+                    type="text"
+                    id="height"
+                    name="inches"
+                    pattern="[0-9]*"
+                  />
+                  <span class="imperial-unit">in</span>
+                </div>
+              </label>
+            </div>
+            <div class="imperial">
+              <label class="imperial__label" for="weight">
+                Weight
+                <div class="imperial__input-container">
+                  <input
+                    class="imperial__input"
+                    type="text"
+                    id="weight"
+                    name="stone"
+                    pattern="[0-9]*"
+                  />
+                  <span class="imperial-unit">st</span>
+                </div>
+                <div class="imperial__input-container">
+                  <input
+                    class="imperial__input"
+                    type="text"
+                    id="weight"
+                    name="pounds"
+                    pattern="[0-9]*"
+                  />
+                  <span class="imperial-unit">lbs</span>
+                </div>
+              </label>
+            </div>
+          </div> -->
+          <div class="BMI-result">
+            <h2 class="BMI-result__header">Welcome!</h2>
+            <span class="BMI-result__instructions"
+              >Enter your height and weight and you'll see your BMI result
+              here</span
+            >
+          </div>
         </div>
       </header>
+      <section class="BMI-meaning">
+        <div class="BMI-meaning__image-container">
+          <img
+            class="BMI-meaning__image"
+            src="assets/images/image-man-eating.jpg"
+            alt="Man eating sushi"
+          />
+        </div>
+      </section>
     </main>
   </body>
 </html>
