@@ -1,0 +1,70 @@
+// ********** STYLE GUIDE **********
+
+// ************ COLORS *************
+$color-header-bg: linear-gradient(
+  315deg,
+  #d6e6fe 0%,
+  rgba(214, 252, 254, 0) 100%
+);
+$color-header-primary: #253347;
+$color-header-paragraph: #5e6e85;
+$color-body-bg: #fff;
+$color-details-bg: #fff;
+$color-details-header: #253347;
+$color-radio-label: #253347;
+$color-radio-default: #d8e2e7;
+$color-radio-hover: #345ff6;
+$color-radio-active-bg: rgba(#345ff6, 0.15);
+$color-radio-active-circle: #345ff6;
+$color-input-bg: #fff;
+$color-input-default-border: #d8e2e7;
+$color-input-active-border: #345ff6;
+$color-input-filled-border: #d8e2e7;
+$color-input-number: #253347;
+$color-input-unit: #345ff6;
+$color-input-placeholder: rgba(#253347, 0.25);
+$color-height-text: #5e6e85;
+$color-weight-text: #5e6e85;
+$color-bmi-result-bg: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
+$color-bmi-result-text: #fff;
+$color-meaning-header: #253347;
+$color-meaning-paragraph: #5e6e85;
+$color-improve-bg: linear-gradient(
+  315deg,
+  #d6e6fe 0%,
+  rgba(214, 252, 254, 0) 100%
+);
+$color-improve-header: #253347;
+$color-improve-paragraph: #5e6e85;
+$color-limitations-header: #253347;
+$color-limitations-paragraph: #5e6e85;
+
+// ************ TYPOGRAPHY ***********
+
+// *********** FONT-FAMILY ***********
+$font-primary: "Inter", sans-serif;
+
+// ********** FONT-WEIGHTS ***********
+$font-weight-semiBold: 600;
+$font-weight-bold: 700;
+
+// *************** BASE **************
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: $font-primary;
+  background: $color-body-bg;
+}
+
+// ********** MOBILE LAYOUT **********
