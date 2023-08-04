@@ -67,4 +67,112 @@ body {
   background: $color-body-bg;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+.BMI-meaning__image {
+  max-width: 100%;
+}
+
 // ********** MOBILE LAYOUT **********
+
+// ************* HEADER **************
+.header {
+  background: $color-header-bg;
+  border-radius: 0 0 3.5rem 3.5rem;
+  max-height: 64rem;
+  padding: 3.2rem 2.4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__logo {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 2.4rem;
+  }
+
+  &__primary {
+    color: $color-header-primary;
+    text-align: center;
+    font-size: 4.8rem;
+    font-weight: $font-weight-semiBold;
+    line-height: 5.28rem;
+    letter-spacing: -0.24rem;
+    margin-bottom: 2.4rem;
+  }
+
+  &__paragraph {
+    color: $color-header-paragraph;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-bottom: 4.8rem;
+  }
+}
+
+// *********** BMI DETAILS ***********
+.BMI-details {
+  display: flex;
+  flex-direction: column;
+  max-width: 32.8rem;
+  padding: 2.4rem;
+  gap: 2.4rem;
+  border-radius: 1.6rem;
+  background: $color-details-bg;
+  box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
+  position: relative;
+
+  &__header {
+    color: $color-details-header;
+    font-size: 2.4rem;
+    font-weight: $font-weight-semiBold;
+    letter-spacing: -0.12rem;
+  }
+
+  &__units {
+    display: flex;
+  }
+
+  &__radio {
+    &-input {
+      display: none;
+    }
+
+    &-label {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      color: $color-radio-label;
+      font-size: 1.6rem;
+      font-weight: $font-weight-semiBold;
+      line-height: 2.4rem;
+    }
+
+    &-button {
+      display: inline-block;
+      width: 3.1rem;
+      height: 3.1rem;
+      border: 1px solid $color-radio-default;
+      border-radius: 50%;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 3.1rem;
+        height: 3.1rem;
+        background-image: url("../assets/images/radio-button-active.svg");
+      }
+    }
+  }
+
+  // .BMI-details__radio-unit:first-child .BMI-details__radio-label {
+  //   margin-right: 5.3rem;
+  // }
+
+  &__radio-input:checked + &__radio-label &__radio-button {
+  }
+}
