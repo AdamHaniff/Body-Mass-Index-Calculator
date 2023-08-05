@@ -20,6 +20,7 @@ $color-input-bg: #fff;
 $color-input-default-border: #d8e2e7;
 $color-input-active-border: #345ff6;
 $color-input-filled-border: #d8e2e7;
+$color-input-error-border: #ff0000;
 $color-input-number: #253347;
 $color-input-unit: #345ff6;
 $color-input-placeholder: rgba(#253347, 0.25);
@@ -176,4 +177,86 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+}
+
+.metric {
+  &__label {
+    color: $color-height-text;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
+
+  &__input-container {
+    margin-top: 0.8rem;
+    position: relative;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 2rem 2.4rem;
+    border-radius: 1.2rem;
+    border: 1px solid $color-input-default-border;
+    color: $color-input-number;
+    font-family: $font-primary;
+    font-size: 2.4rem;
+    font-weight: $font-weight-semiBold;
+    letter-spacing: -0.12rem;
+
+    &::placeholder {
+      color: rgba($color-input-placeholder, 0.25);
+      font-family: $font-primary;
+      font-size: 2.4rem;
+      font-weight: $font-weight-semiBold;
+      letter-spacing: -0.12rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:focus {
+      border: 1px solid $color-input-active-border;
+      outline: none;
+    }
+
+    &:invalid {
+      border: 1px solid $color-input-error-border;
+    }
+  }
+
+  &__unit {
+    color: $color-input-unit;
+    font-size: 2.4rem;
+    font-weight: $font-weight-semiBold;
+    letter-spacing: -0.12rem;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+  }
+}
+
+// ************ BMI-RESULT ***********
+.BMI-result {
+  max-width: 28rem;
+  padding: 2.9rem;
+  border-radius: 1.6rem;
+  background: $color-bmi-result-bg;
+  color: $color-bmi-result-text;
+
+  &__header {
+    font-size: 2.4rem;
+    font-weight: $font-weight-semiBold;
+    letter-spacing: -0.12rem;
+    margin-bottom: 1.6rem;
+  }
+
+  &__instructions {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
+}
+
+// *********** BMI-MEANING ***********
+.BMI-meaning {
+  margin-top: 44rem;
 }

@@ -109,4 +109,84 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+}
+
+.metric__label {
+  color: #5e6e85;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+}
+.metric__input-container {
+  margin-top: 0.8rem;
+  position: relative;
+}
+.metric__input {
+  width: 100%;
+  padding: 2rem 2.4rem;
+  border-radius: 1.2rem;
+  border: 1px solid #d8e2e7;
+  color: #253347;
+  font-family: "Inter", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.12rem;
+}
+.metric__input::-moz-placeholder {
+  color: rgba(37, 51, 71, 0.25);
+  font-family: "Inter", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.12rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.metric__input::placeholder {
+  color: rgba(37, 51, 71, 0.25);
+  font-family: "Inter", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.12rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.metric__input:focus {
+  border: 1px solid #345ff6;
+  outline: none;
+}
+.metric__input:invalid {
+  border: 1px solid #ff0000;
+}
+.metric__unit {
+  color: #345ff6;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.12rem;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+}
+
+.BMI-result {
+  max-width: 28rem;
+  padding: 2.9rem;
+  border-radius: 1.6rem;
+  background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
+  color: #fff;
+}
+.BMI-result__header {
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.12rem;
+  margin-bottom: 1.6rem;
+}
+.BMI-result__instructions {
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+}
+
+.BMI-meaning {
+  margin-top: 44rem;
 }/*# sourceMappingURL=main.css.map */
