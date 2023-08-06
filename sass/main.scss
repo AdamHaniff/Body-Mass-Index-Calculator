@@ -235,8 +235,8 @@ body {
   }
 }
 
-// ************ BMI-RESULT ***********
-.BMI-result {
+// *********** BMI-WELCOME ***********
+.BMI-welcome {
   max-width: 28rem;
   padding: 2.9rem;
   border-radius: 1.6rem;
@@ -253,6 +253,110 @@ body {
   &__instructions {
     font-size: 1.4rem;
     line-height: 2.1rem;
+  }
+}
+
+// ************ BMI-RESULT ***********
+.BMI-result {
+  max-width: 28rem;
+  padding: 3.2rem;
+  border-radius: 1.6rem;
+  background: $color-bmi-result-bg;
+  color: $color-bmi-result-text;
+
+  &__header {
+    font-size: 1.6rem;
+    font-weight: $font-weight-semiBold;
+    line-height: 2.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  &__number {
+    display: inline-block;
+    font-size: 4.8rem;
+    font-weight: $font-weight-semiBold;
+    line-height: 5.28rem;
+    letter-spacing: -0.24rem;
+    margin-bottom: 2.4rem;
+  }
+
+  &__paragraph {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
+
+  &__ideal-weight {
+    font-weight: $font-weight-bold;
+  }
+}
+
+// ****** IMPERIAL MEASUREMENTS ******
+.imperial-measurements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.imperial {
+  &__label {
+    color: $color-height-text;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
+
+  &__input-containers {
+    margin-top: 0.8rem;
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  &__input-container {
+    display: inline-block;
+    position: relative;
+  }
+
+  &__input {
+    max-width: 13.2rem;
+    max-height: 6.9rem;
+    padding: 2rem 2.4rem;
+    border-radius: 1.2rem;
+    border: 1px solid $color-input-default-border;
+    color: $color-input-number;
+    font-family: $font-primary;
+    font-size: 2.4rem;
+    font-weight: $font-weight-semiBold;
+    letter-spacing: -0.12rem;
+
+    &::placeholder {
+      color: rgba($color-input-placeholder, 0.25);
+      font-family: $font-primary;
+      font-size: 2.4rem;
+      font-weight: $font-weight-semiBold;
+      letter-spacing: -0.12rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:focus {
+      border: 1px solid $color-input-active-border;
+      outline: none;
+    }
+
+    &:invalid {
+      border: 1px solid $color-input-error-border;
+    }
+  }
+
+  &__unit {
+    position: absolute;
+    top: 50%;
+    right: 2.5rem;
+    transform: translateY(-50%);
+    color: $color-input-unit;
+    font-size: 2.4rem;
+    font-weight: $font-weight-semiBold;
+    letter-spacing: -0.12rem;
   }
 }
 

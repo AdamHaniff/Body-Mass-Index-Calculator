@@ -97,69 +97,82 @@
             <div class="imperial">
               <label class="imperial__label" for="height"
                 >Height
-                <div class="imperial__input-container">
-                  <input
-                    class="imperial__input"
-                    type="text"
-                    id="height"
-                    name="feet"
-                    pattern="[0-9]*"
-                    placeholder="0"
-                    maxlength="3"
-                  />
-                  <span class="imperial__unit">ft</span>
-                </div>
-                <div class="imperial__input-container">
-                  <input
-                    class="imperial__input"
-                    type="text"
-                    id="height"
-                    name="inches"
-                    pattern="[0-9]*"
-                    placeholder="0"
-                    maxlength="3"
-                  />
-                  <span class="imperial__unit">in</span>
+                <div class="imperial__input-containers">
+                  <div class="imperial__input-container">
+                    <input
+                      class="imperial__input"
+                      type="text"
+                      id="height"
+                      name="feet"
+                      pattern="[0-9]*"
+                      placeholder="0"
+                      maxlength="3"
+                    />
+                    <span class="imperial__unit">ft</span>
+                  </div>
+                  <div class="imperial__input-container">
+                    <input
+                      class="imperial__input"
+                      type="text"
+                      id="height"
+                      name="inches"
+                      pattern="[0-9]*"
+                      placeholder="0"
+                      maxlength="3"
+                    />
+                    <span class="imperial__unit">in</span>
+                  </div>
                 </div>
               </label>
             </div>
             <div class="imperial">
               <label class="imperial__label" for="weight">
                 Weight
-                <div class="imperial__input-container">
-                  <input
-                    class="imperial__input"
-                    type="text"
-                    id="weight"
-                    name="stone"
-                    pattern="[0-9]*"
-                    placeholder="0"
-                    maxlength="3"
-                  />
-                  <span class="imperial__unit">st</span>
-                </div>
-                <div class="imperial__input-container">
-                  <input
-                    class="imperial__input"
-                    type="text"
-                    id="weight"
-                    name="pounds"
-                    pattern="[0-9]*"
-                    placeholder="0"
-                    maxlength="3"
-                  />
-                  <span class="imperial__unit">lbs</span>
+                <div class="imperial__input-containers">
+                  <div class="imperial__input-container">
+                    <input
+                      class="imperial__input"
+                      type="text"
+                      id="weight"
+                      name="stone"
+                      pattern="[0-9]*"
+                      placeholder="0"
+                      maxlength="3"
+                    />
+                    <span class="imperial__unit">st</span>
+                  </div>
+                  <div class="imperial__input-container">
+                    <input
+                      class="imperial__input"
+                      type="text"
+                      id="weight"
+                      name="pounds"
+                      pattern="[0-9]*"
+                      placeholder="0"
+                      maxlength="3"
+                    />
+                    <span class="imperial__unit">lbs</span>
+                  </div>
                 </div>
               </label>
             </div>
           </div> -->
-          <div class="BMI-result">
-            <h2 class="BMI-result__header">Welcome!</h2>
-            <span class="BMI-result__instructions"
+          <div class="BMI-welcome">
+            <h2 class="BMI-welcome__header">Welcome!</h2>
+            <span class="BMI-welcome__instructions"
               >Enter your height and weight and you'll see your BMI result
               here</span
             >
           </div>
+          <!-- <div class="BMI-result">
+            <h3 class="BMI-result__header">Your BMI is...</h3>
+            <span class="BMI-result__number">23.4</span>
+            <p class="BMI-result__paragraph">
+              Your BMI suggests you're a healthy weight. Your ideal weight is
+              between
+              <span class="BMI-result__ideal-weight">63.3kgs - 85.2kgs</span>.
+            </p>
+          </div> -->
         </div>
       </header>
       <section class="BMI-meaning">

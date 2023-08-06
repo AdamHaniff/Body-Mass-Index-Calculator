@@ -169,22 +169,121 @@ body {
   transform: translateY(-50%);
 }
 
-.BMI-result {
+.BMI-welcome {
   max-width: 28rem;
   padding: 2.9rem;
   border-radius: 1.6rem;
   background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
   color: #fff;
 }
-.BMI-result__header {
+.BMI-welcome__header {
   font-size: 2.4rem;
   font-weight: 600;
   letter-spacing: -0.12rem;
   margin-bottom: 1.6rem;
 }
-.BMI-result__instructions {
+.BMI-welcome__instructions {
   font-size: 1.4rem;
   line-height: 2.1rem;
+}
+
+.BMI-result {
+  max-width: 28rem;
+  padding: 3.2rem;
+  border-radius: 1.6rem;
+  background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
+  color: #fff;
+}
+.BMI-result__header {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  margin-bottom: 0.8rem;
+}
+.BMI-result__number {
+  display: inline-block;
+  font-size: 4.8rem;
+  font-weight: 600;
+  line-height: 5.28rem;
+  letter-spacing: -0.24rem;
+  margin-bottom: 2.4rem;
+}
+.BMI-result__paragraph {
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+}
+.BMI-result__ideal-weight {
+  font-weight: 700;
+}
+
+.imperial-measurements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.imperial__label {
+  color: #5e6e85;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+}
+.imperial__input-containers {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 1.6rem;
+}
+.imperial__input-container {
+  display: inline-block;
+  position: relative;
+}
+.imperial__input {
+  max-width: 13.2rem;
+  max-height: 6.9rem;
+  padding: 2rem 2.4rem;
+  border-radius: 1.2rem;
+  border: 1px solid #d8e2e7;
+  color: #253347;
+  font-family: "Inter", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.12rem;
+}
+.imperial__input::-moz-placeholder {
+  color: rgba(37, 51, 71, 0.25);
+  font-family: "Inter", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.12rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.imperial__input::placeholder {
+  color: rgba(37, 51, 71, 0.25);
+  font-family: "Inter", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.12rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.imperial__input:focus {
+  border: 1px solid #345ff6;
+  outline: none;
+}
+.imperial__input:invalid {
+  border: 1px solid #ff0000;
+}
+.imperial__unit {
+  position: absolute;
+  top: 50%;
+  right: 2.5rem;
+  transform: translateY(-50%);
+  color: #345ff6;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.12rem;
 }
 
 .BMI-meaning {
