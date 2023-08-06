@@ -73,10 +73,6 @@ body {
   height: 100%;
 }
 
-.BMI-meaning__image {
-  max-width: 100%;
-}
-
 // ********** MOBILE LAYOUT **********
 
 // ************* HEADER **************
@@ -363,4 +359,136 @@ body {
 // *********** BMI-MEANING ***********
 .BMI-meaning {
   margin-top: 44rem;
+
+  &__image-container {
+    max-width: 37.5rem;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__text {
+    padding: 4.8rem 2.4rem 7.161rem;
+  }
+
+  &__header {
+    color: $color-meaning-header;
+    font-size: 3.2rem;
+    font-weight: $font-weight-semiBold;
+    line-height: 3.52rem;
+    letter-spacing: -0.16rem;
+    margin-bottom: 3.2rem;
+  }
+
+  &__paragraph {
+    color: $color-meaning-paragraph;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+}
+
+// *********** IMPROVE-BMI ***********
+.improve-BMI {
+  position: relative;
+  padding: 5.6rem 2.896rem 5.6rem 1.904rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $color-improve-bg;
+    opacity: 0.25;
+    z-index: -1;
+  }
+}
+
+.improve-container {
+  &__icon {
+    margin-bottom: 3.2rem;
+  }
+
+  &__header {
+    color: $color-improve-header;
+    font-size: 2.4rem;
+    font-weight: $font-weight-semiBold;
+    letter-spacing: -0.12rem;
+    margin-bottom: 2.4rem;
+  }
+
+  &__paragraph {
+    color: $color-improve-paragraph;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+}
+
+// ********* BMI-LIMITATIONS *********
+.BMI-limitations {
+  padding: 7.2rem 2.9rem 9.6rem 1.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5.6rem;
+
+  .limitations-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    text-align: center;
+
+    &__header {
+      color: $color-limitations-header;
+      font-size: 3.2rem;
+      font-weight: $font-weight-semiBold;
+      line-height: 3.52rem;
+      letter-spacing: -0.16rem;
+    }
+
+    &__paragraph {
+      color: $color-limitations-paragraph;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .limitation-container {
+    max-width: 32.7rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__icon-header {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    &__header {
+      color: $color-limitations-header;
+      font-size: 2rem;
+      font-weight: $font-weight-semiBold;
+      letter-spacing: -0.1rem;
+    }
+
+    &__paragraph {
+      color: $color-limitations-paragraph;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+  }
 }
