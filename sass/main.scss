@@ -39,6 +39,7 @@ $color-improve-header: #253347;
 $color-improve-paragraph: #5e6e85;
 $color-limitations-header: #253347;
 $color-limitations-paragraph: #5e6e85;
+$color-limitations-bg: #fff;
 
 // ************ TYPOGRAPHY ***********
 
@@ -464,6 +465,7 @@ body {
   }
 
   .limitation-container {
+    background: $color-limitations-bg;
     max-width: 32.7rem;
     padding: 2.4rem;
     border-radius: 1.6rem;
@@ -491,4 +493,9 @@ body {
       line-height: 2.4rem;
     }
   }
+}
+
+// *** CLASS USED WITH JAVASCRIPT ***
+.hidden {
+  display: none;
 }

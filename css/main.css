@@ -373,6 +373,7 @@ body {
   gap: 1.6rem;
 }
 .BMI-limitations .limitation-container {
+  background: #fff;
   max-width: 32.7rem;
   padding: 2.4rem;
   border-radius: 1.6rem;
@@ -396,4 +397,8 @@ body {
   color: #5e6e85;
   font-size: 1.6rem;
   line-height: 2.4rem;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=main.css.map */
