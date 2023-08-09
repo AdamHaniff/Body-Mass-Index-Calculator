@@ -2,13 +2,13 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 
 // VARIABLES
-const metricHeightInput = document.getElementsByName("centimeters")[0];
-const metricWeightInput = document.getElementsByName("kilograms")[0];
+const metricHeightInput = document.getElementById("heightCM");
+const metricWeightInput = document.getElementById("weightKG");
 const bmiNumber = document.querySelector(".BMI-result__number");
 const bmiParagraph = document.querySelector(".BMI-result__paragraph");
-const bmiIdealWeight = document.querySelector(".BMI-result__ideal-weight");
 const bmiResult = document.querySelector(".BMI-result");
 const bmiWelcome = document.querySelector(".BMI-welcome");
+const bmiMeaning = document.querySelector(".BMI-meaning");
 
 // HELPER FUNCTIONS
 function isValidHeightandWeight(height, weight) {
@@ -57,11 +57,19 @@ function calculateIdealWeightRange(height) {
 
 function displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
   bmiNumber.textContent = bmi;
-  bmiParagraph.textContent = `Your BMI suggests you're ${category}. Your ideal weight is
-  between`;
-  bmiIdealWeight.textContent = `${minIdealWeight}kgs - ${maxIdealWeight}kgs`;
+  const bmiParagraphHTML = `Your BMI suggests you're ${category}. Your ideal weight is between <span class="BMI-result__ideal-weight">${minIdealWeight}kgs - ${maxIdealWeight}kgs</span>.`;
+  bmiParagraph.innerHTML = bmiParagraphHTML;
   bmiWelcome.classList.add("hidden");
   bmiResult.classList.remove("hidden");
+  bmiMeaning.style.marginTop = "55.2rem";
+}
+
+function displayBMIWelcome() {
+  if (!metricHeightInput.value && !metricWeightInput.value) {
+    bmiResult.classList.add("hidden");
+    bmiWelcome.classList.remove("hidden");
+    bmiMeaning.style.marginTop = "44rem";
+  }
 }
 
 // EVENT LISTENER CALLBACK FUNCTION
@@ -69,6 +77,7 @@ function calculateBMI() {
   height = parseFloat(metricHeightInput.value);
   weight = parseFloat(metricWeightInput.value);
 
+  displayBMIWelcome();
   if (!isValidHeightandWeight(height, weight)) return;
   const bmi = (weight / ((height * height) / 10000)).toFixed(1);
   const category = categorizeBMI(bmi);
