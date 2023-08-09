@@ -4,6 +4,11 @@ import "regenerator-runtime/runtime";
 // VARIABLES
 const metricHeightInput = document.getElementsByName("centimeters")[0];
 const metricWeightInput = document.getElementsByName("kilograms")[0];
+const bmiNumber = document.querySelector(".BMI-result__number");
+const bmiParagraph = document.querySelector(".BMI-result__paragraph");
+const bmiIdealWeight = document.querySelector(".BMI-result__ideal-weight");
+const bmiResult = document.querySelector(".BMI-result");
+const bmiWelcome = document.querySelector(".BMI-welcome");
 
 // HELPER FUNCTIONS
 function isValidHeightandWeight(height, weight) {
@@ -50,6 +55,15 @@ function calculateIdealWeightRange(height) {
   };
 }
 
+function displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
+  bmiNumber.textContent = bmi;
+  bmiParagraph.textContent = `Your BMI suggests you're ${category}. Your ideal weight is
+  between`;
+  bmiIdealWeight.textContent = `${minIdealWeight}kgs - ${maxIdealWeight}kgs`;
+  bmiWelcome.classList.add("hidden");
+  bmiResult.classList.remove("hidden");
+}
+
 // EVENT LISTENER CALLBACK FUNCTION
 function calculateBMI() {
   height = parseFloat(metricHeightInput.value);
@@ -59,11 +73,9 @@ function calculateBMI() {
   const bmi = (weight / ((height * height) / 10000)).toFixed(1);
   const category = categorizeBMI(bmi);
   const { minIdealWeight, maxIdealWeight } = calculateIdealWeightRange(height);
+  displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight);
 }
 
 // EVENT LISTENERS
 metricHeightInput.addEventListener("input", calculateBMI);
 metricWeightInput.addEventListener("input", calculateBMI);
-
-// AFTER BMI IS CALCULATED
-// WE WANT TO HIDE WELCOME, DISPLAY RESULT
