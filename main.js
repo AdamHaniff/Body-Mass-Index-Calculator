@@ -74,8 +74,8 @@ function displayBMIWelcome() {
 
 // EVENT LISTENER CALLBACK FUNCTION
 function calculateBMI() {
-  height = parseFloat(metricHeightInput.value);
-  weight = parseFloat(metricWeightInput.value);
+  const height = parseFloat(metricHeightInput.value);
+  const weight = parseFloat(metricWeightInput.value);
 
   displayBMIWelcome();
   if (!isValidHeightandWeight(height, weight)) return;
@@ -88,3 +88,38 @@ function calculateBMI() {
 // EVENT LISTENERS
 metricHeightInput.addEventListener("input", calculateBMI);
 metricWeightInput.addEventListener("input", calculateBMI);
+
+// VARIABLES
+const radioContainer = document.querySelector(".BMI-details__units");
+const metricMeasurements = document.querySelector(".metric-measurements");
+const imperialMeasurements = document.querySelector(".imperial-measurements");
+const imperialFeetInput = document.getElementById("heightFT");
+const imperialInchesInput = document.getElementById("heightIN");
+const imperialStoneInput = document.getElementById("weightST");
+const imperialPoundsInput = document.getElementById("weightLBS");
+
+// EVENT LISTENER CALLBACK FUNCTIONS
+function handleRadioBtnChange(e) {
+  const radioBtn = e.target;
+  if (radioBtn.id === "imperial") {
+    imperialMeasurements.classList.toggle("hidden");
+    metricMeasurements.classList.toggle("hidden");
+  } else if (radioBtn.id === "metric") {
+    metricMeasurements.classList.toggle("hidden");
+    imperialMeasurements.classList.toggle("hidden");
+  }
+}
+
+function calculateImperialBMI() {
+  const heightFT = parseFloat(imperialFeetInput.value);
+  const heightIN = parseFloat(imperialInchesInput.value);
+  const weightST = parseFloat(imperialStoneInput.value);
+  const weightLBS = parseFloat(imperialPoundsInput.value);
+}
+
+// EVENT LISTENERS
+radioContainer.addEventListener("change", handleRadioBtnChange);
+imperialFeetInput.addEventListener("input", calculateImperialBMI);
+imperialInchesInput.addEventListener("input", calculateImperialBMI);
+imperialStoneInput.addEventListener("input", calculateImperialBMI);
+imperialPoundsInput.addEventListener("input", calculateImperialBMI);
