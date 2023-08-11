@@ -98,6 +98,64 @@ const imperialInchesInput = document.getElementById("heightIN");
 const imperialStoneInput = document.getElementById("weightST");
 const imperialPoundsInput = document.getElementById("weightLBS");
 
+// HELPER FUNCTIONS
+function displayImperialBMIWelcome(heightFT, heightIN, weightST, weightLBS) {
+  if (!heightFT && !heightIN && !weightST && !weightLBS) {
+    bmiResult.classList.add("hidden");
+    bmiWelcome.classList.remove("hidden");
+    bmiMeaning.style.marginTop = "44rem";
+  }
+}
+
+function isValidImperialMeasurements(heightFT, heightIN, weightST, weightLBS) {
+  const conditions = [
+    typeof heightFT === "number",
+    typeof heightIN === "number",
+    typeof weightST === "number",
+    typeof weightLBS === "number",
+    heightFT > 0,
+    weightST > 0,
+  ];
+
+  return conditions.every((condition) => condition);
+}
+
+function calculateImperialIdealWeight(heightInInches) {
+  const minBMI = 18.5;
+  const maxBMI = 24.9;
+
+  const minIdealWeight = (
+    (minBMI * (heightInInches * heightInInches)) /
+    703
+  ).toFixed(1);
+  const maxIdealWeight = (
+    (maxBMI * (heightInInches * heightInInches)) /
+    703
+  ).toFixed(1);
+
+  return {
+    minIdealWeight: minIdealWeight,
+    maxIdealWeight: maxIdealWeight,
+  };
+}
+
+// prettier-ignore
+function displayImperialBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
+  console.log(minIdealWeight, maxIdealWeight); 
+  const minWeightST = Math.floor(minIdealWeight / 14);
+  const minWeightLBS = Math.floor(minIdealWeight - (minWeightST * 14)); 
+  const maxWeightST = Math.floor(maxIdealWeight / 14); 
+  const maxWeightLBS = Math.floor(maxIdealWeight - (maxWeightST * 14)); 
+  console.log(minWeightST, minWeightLBS, maxWeightST, maxWeightLBS); 
+
+  bmiNumber.textContent = bmi; 
+  const bmiParagraphHTML = `Your BMI suggests you're ${category}. Your ideal weight is between <span class="BMI-result__ideal-weight">${minWeightST}st ${minWeightLBS}lbs - ${maxWeightST}st ${maxWeightLBS}lbs</span>.`;
+  bmiParagraph.innerHTML = bmiParagraphHTML;
+  bmiWelcome.classList.add("hidden");
+  bmiResult.classList.remove("hidden");
+  bmiMeaning.style.marginTop = "55.2rem";
+}
+
 // EVENT LISTENER CALLBACK FUNCTIONS
 function handleRadioBtnChange(e) {
   const radioBtn = e.target;
@@ -115,6 +173,18 @@ function calculateImperialBMI() {
   const heightIN = parseFloat(imperialInchesInput.value);
   const weightST = parseFloat(imperialStoneInput.value);
   const weightLBS = parseFloat(imperialPoundsInput.value);
+  const heightInInches = heightFT * 12 + heightIN;
+  const weightInPounds = weightST * 14 + weightLBS;
+
+  displayImperialBMIWelcome(heightFT, heightIN, weightST, weightLBS);
+  if (!isValidImperialMeasurements(heightFT, heightIN, weightST, weightLBS))
+    return;
+  // prettier-ignore
+  const bmi = ((weightInPounds / (heightInInches * heightInInches)) * 703).toFixed(1);
+  const category = categorizeBMI(bmi);
+  const { minIdealWeight, maxIdealWeight } =
+    calculateImperialIdealWeight(heightInInches);
+  displayImperialBMIResult(bmi, category, minIdealWeight, maxIdealWeight);
 }
 
 // EVENT LISTENERS
