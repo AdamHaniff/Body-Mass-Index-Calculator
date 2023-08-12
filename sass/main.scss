@@ -74,6 +74,61 @@ body {
   height: 100%;
 }
 
+// ************* MIXINS **************
+@mixin measurements-styles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+@mixin measurements-labels {
+  color: $color-height-text;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+}
+
+@mixin measurements-inputs {
+  padding: 2rem 2.4rem;
+  border-radius: 1.2rem;
+  border: 0.1rem solid $color-input-default-border;
+  color: $color-input-number;
+  font-family: $font-primary;
+  font-size: 2.4rem;
+  font-weight: $font-weight-semiBold;
+  letter-spacing: -0.12rem;
+}
+
+@mixin measurements-placeholders {
+  color: rgba($color-input-placeholder, 0.25);
+  font-family: $font-primary;
+  font-size: 2.4rem;
+  font-weight: $font-weight-semiBold;
+  letter-spacing: -0.12rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin measurements-focus-styles {
+  border: 0.1rem solid $color-input-active-border;
+  outline: none;
+}
+
+@mixin measurements-invalid-styles {
+  border: 0.1rem solid $color-input-error-border;
+}
+
+@mixin measurements-units {
+  color: $color-input-unit;
+  font-size: 2.4rem;
+  font-weight: $font-weight-semiBold;
+  letter-spacing: -0.12rem;
+  position: absolute;
+  top: 50%;
+  right: 2.5rem;
+  transform: translateY(-50%);
+}
+
 // ********** MOBILE LAYOUT **********
 
 // ************* HEADER **************
@@ -163,24 +218,20 @@ body {
       display: inline-block;
       width: 3.1rem;
       height: 3.1rem;
-      border: 1px solid $color-radio-default;
+      border: 0.1rem solid $color-radio-default;
       border-radius: 50%;
     }
   }
 }
 
 // ******* METRIC MEASUREMENTS *******
-.metric-measurements {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-
 .metric {
+  &-measurements {
+    @include measurements-styles;
+  }
+
   &__label {
-    color: $color-height-text;
-    font-size: 1.4rem;
-    line-height: 2.1rem;
+    @include measurements-labels;
   }
 
   &__input-container {
@@ -190,45 +241,23 @@ body {
 
   &__input {
     width: 100%;
-    padding: 2rem 2.4rem;
-    border-radius: 1.2rem;
-    border: 1px solid $color-input-default-border;
-    color: $color-input-number;
-    font-family: $font-primary;
-    font-size: 2.4rem;
-    font-weight: $font-weight-semiBold;
-    letter-spacing: -0.12rem;
+    @include measurements-inputs;
 
     &::placeholder {
-      color: rgba($color-input-placeholder, 0.25);
-      font-family: $font-primary;
-      font-size: 2.4rem;
-      font-weight: $font-weight-semiBold;
-      letter-spacing: -0.12rem;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      @include measurements-placeholders;
     }
 
     &:focus {
-      border: 1px solid $color-input-active-border;
-      outline: none;
+      @include measurements-focus-styles;
     }
 
     &:invalid {
-      border: 1px solid $color-input-error-border;
+      @include measurements-invalid-styles;
     }
   }
 
   &__unit {
-    color: $color-input-unit;
-    font-size: 2.4rem;
-    font-weight: $font-weight-semiBold;
-    letter-spacing: -0.12rem;
-    position: absolute;
-    top: 50%;
-    right: 25px;
-    transform: translateY(-50%);
+    @include measurements-units;
   }
 }
 
@@ -288,17 +317,13 @@ body {
 }
 
 // ****** IMPERIAL MEASUREMENTS ******
-.imperial-measurements {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-
 .imperial {
+  &-measurements {
+    @include measurements-styles;
+  }
+
   &__label {
-    color: $color-height-text;
-    font-size: 1.4rem;
-    line-height: 2.1rem;
+    @include measurements-labels;
   }
 
   &__input-containers {
@@ -315,45 +340,23 @@ body {
   &__input {
     max-width: 13.2rem;
     max-height: 6.9rem;
-    padding: 2rem 2.4rem;
-    border-radius: 1.2rem;
-    border: 1px solid $color-input-default-border;
-    color: $color-input-number;
-    font-family: $font-primary;
-    font-size: 2.4rem;
-    font-weight: $font-weight-semiBold;
-    letter-spacing: -0.12rem;
+    @include measurements-inputs;
 
     &::placeholder {
-      color: rgba($color-input-placeholder, 0.25);
-      font-family: $font-primary;
-      font-size: 2.4rem;
-      font-weight: $font-weight-semiBold;
-      letter-spacing: -0.12rem;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      @include measurements-placeholders;
     }
 
     &:focus {
-      border: 1px solid $color-input-active-border;
-      outline: none;
+      @include measurements-focus-styles;
     }
 
     &:invalid {
-      border: 1px solid $color-input-error-border;
+      @include measurements-invalid-styles;
     }
   }
 
   &__unit {
-    position: absolute;
-    top: 50%;
-    right: 2.5rem;
-    transform: translateY(-50%);
-    color: $color-input-unit;
-    font-size: 2.4rem;
-    font-weight: $font-weight-semiBold;
-    letter-spacing: -0.12rem;
+    @include measurements-units;
   }
 }
 

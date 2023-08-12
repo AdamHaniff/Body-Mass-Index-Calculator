@@ -97,7 +97,7 @@ body {
   display: inline-block;
   width: 3.1rem;
   height: 3.1rem;
-  border: 1px solid #d8e2e7;
+  border: 0.1rem solid #d8e2e7;
   border-radius: 50%;
 }
 
@@ -106,7 +106,6 @@ body {
   flex-direction: column;
   gap: 1.6rem;
 }
-
 .metric__label {
   color: #5e6e85;
   font-size: 1.4rem;
@@ -120,7 +119,7 @@ body {
   width: 100%;
   padding: 2rem 2.4rem;
   border-radius: 1.2rem;
-  border: 1px solid #d8e2e7;
+  border: 0.1rem solid #d8e2e7;
   color: #253347;
   font-family: "Inter", sans-serif;
   font-size: 2.4rem;
@@ -148,11 +147,11 @@ body {
   transform: translateY(-50%);
 }
 .metric__input:focus {
-  border: 1px solid #345ff6;
+  border: 0.1rem solid #345ff6;
   outline: none;
 }
 .metric__input:invalid {
-  border: 1px solid #ff0000;
+  border: 0.1rem solid #ff0000;
 }
 .metric__unit {
   color: #345ff6;
@@ -161,7 +160,7 @@ body {
   letter-spacing: -0.12rem;
   position: absolute;
   top: 50%;
-  right: 25px;
+  right: 2.5rem;
   transform: translateY(-50%);
 }
 
@@ -217,7 +216,6 @@ body {
   flex-direction: column;
   gap: 1.6rem;
 }
-
 .imperial__label {
   color: #5e6e85;
   font-size: 1.4rem;
@@ -237,7 +235,7 @@ body {
   max-height: 6.9rem;
   padding: 2rem 2.4rem;
   border-radius: 1.2rem;
-  border: 1px solid #d8e2e7;
+  border: 0.1rem solid #d8e2e7;
   color: #253347;
   font-family: "Inter", sans-serif;
   font-size: 2.4rem;
@@ -265,21 +263,21 @@ body {
   transform: translateY(-50%);
 }
 .imperial__input:focus {
-  border: 1px solid #345ff6;
+  border: 0.1rem solid #345ff6;
   outline: none;
 }
 .imperial__input:invalid {
-  border: 1px solid #ff0000;
+  border: 0.1rem solid #ff0000;
 }
 .imperial__unit {
-  position: absolute;
-  top: 50%;
-  right: 2.5rem;
-  transform: translateY(-50%);
   color: #345ff6;
   font-size: 2.4rem;
   font-weight: 600;
   letter-spacing: -0.12rem;
+  position: absolute;
+  top: 50%;
+  right: 2.5rem;
+  transform: translateY(-50%);
 }
 
 .BMI-meaning {
