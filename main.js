@@ -269,31 +269,33 @@ function isValidMeasurements(measurements) {
   return conditions.every((condition) => condition);
 }
 
-function calculateIdealWeightRange(height) {
+function calculateIdealWeightRange(heightMeasurement) {
   const minBMI = 18.5;
   const maxBMI = 24.9;
+  let minIdealWeight = null;
+  let maxIdealWeight = null;
 
-  const minIdealWeight = ((minBMI * (height * height)) / 10000).toFixed(1);
-  const maxIdealWeight = ((maxBMI * (height * height)) / 10000).toFixed(1);
+  if (metricRadioBtn.checked) {
+    minIdealWeight = (
+      (minBMI * (heightMeasurement * heightMeasurement)) /
+      10000
+    ).toFixed(1);
+    maxIdealWeight = (
+      (maxBMI * (heightMeasurement * heightMeasurement)) /
+      10000
+    ).toFixed(1);
+  }
 
-  return {
-    minIdealWeight: minIdealWeight,
-    maxIdealWeight: maxIdealWeight,
-  };
-}
-
-function calculateImperialIdealWeight(heightInInches) {
-  const minBMI = 18.5;
-  const maxBMI = 24.9;
-
-  const minIdealWeight = (
-    (minBMI * (heightInInches * heightInInches)) /
-    703
-  ).toFixed(1);
-  const maxIdealWeight = (
-    (maxBMI * (heightInInches * heightInInches)) /
-    703
-  ).toFixed(1);
+  if (imperialRadioBtn.checked) {
+    minIdealWeight = (
+      (minBMI * (heightMeasurement * heightMeasurement)) /
+      703
+    ).toFixed(1);
+    maxIdealWeight = (
+      (maxBMI * (heightMeasurement * heightMeasurement)) /
+      703
+    ).toFixed(1);
+  }
 
   return {
     minIdealWeight: minIdealWeight,
@@ -303,24 +305,23 @@ function calculateImperialIdealWeight(heightInInches) {
 
 function displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
   bmiNumber.textContent = bmi;
-  const bmiParagraphHTML = `Your BMI suggests you're ${category}. Your ideal weight is between <span class="BMI-result__ideal-weight">${minIdealWeight}kgs - ${maxIdealWeight}kgs</span>.`;
-  bmiParagraph.innerHTML = bmiParagraphHTML;
-  bmiWelcome.classList.add("hidden");
-  bmiResult.classList.remove("hidden");
-  bmiMeaning.style.marginTop = "55.2rem";
-}
+  let bmiParagraphHTML = "";
 
-// prettier-ignore
-function displayImperialBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
-  const minWeightST = Math.floor(minIdealWeight / 14);
-  const minWeightLBS = Math.floor(minIdealWeight - (minWeightST * 14)); 
-  const maxWeightST = Math.floor(maxIdealWeight / 14); 
-  const maxWeightLBS = Math.floor(maxIdealWeight - (maxWeightST * 14));  
-  const minWeightUnitLabel = minWeightLBS === 1 ? 'lb' : 'lbs'; 
-  const maxWeightUnitLabel = maxWeightLBS === 1 ? 'lb' : 'lbs';
+  if (metricRadioBtn.checked) {
+    bmiParagraphHTML = `Your BMI suggests you're ${category}. Your ideal weight is between <span class="BMI-result__ideal-weight">${minIdealWeight}kgs - ${maxIdealWeight}kgs</span>.`;
+  }
 
-  bmiNumber.textContent = bmi; 
-  const bmiParagraphHTML = `Your BMI suggests you're ${category}. Your ideal weight is between <span class="BMI-result__ideal-weight">${minWeightST}st ${minWeightLBS}${minWeightUnitLabel} - ${maxWeightST}st ${maxWeightLBS}${maxWeightUnitLabel}</span>.`;
+  if (imperialRadioBtn.checked) {
+    const minWeightST = Math.floor(minIdealWeight / 14);
+    const minWeightLBS = Math.floor(minIdealWeight - minWeightST * 14);
+    const maxWeightST = Math.floor(maxIdealWeight / 14);
+    const maxWeightLBS = Math.floor(maxIdealWeight - maxWeightST * 14);
+    const minWeightUnitLabel = minWeightLBS === 1 ? "lb" : "lbs";
+    const maxWeightUnitLabel = maxWeightLBS === 1 ? "lb" : "lbs";
+
+    bmiParagraphHTML = `Your BMI suggests you're ${category}. Your ideal weight is between <span class="BMI-result__ideal-weight">${minWeightST}st ${minWeightLBS}${minWeightUnitLabel} - ${maxWeightST}st ${maxWeightLBS}${maxWeightUnitLabel}</span>.`;
+  }
+
   bmiParagraph.innerHTML = bmiParagraphHTML;
   bmiWelcome.classList.add("hidden");
   bmiResult.classList.remove("hidden");
@@ -417,8 +418,8 @@ function calculateImperialBMI() {
   const bmi = ((weightInPounds / (heightInInches * heightInInches)) * 703).toFixed(1);
   const category = categorizeBMI(bmi);
   const { minIdealWeight, maxIdealWeight } =
-    calculateImperialIdealWeight(heightInInches);
-  displayImperialBMIResult(bmi, category, minIdealWeight, maxIdealWeight);
+    calculateIdealWeightRange(heightInInches);
+  displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight);
 }
 
 function handleRadioBtnChange(e) {
