@@ -2,252 +2,26 @@ import { categorizeBMI } from "./helpers.js";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
-// // METRIC MEASUREMENTS
-
-// // VARIABLES
-// const metricHeightInput = document.getElementById("heightCM");
-// const metricWeightInput = document.getElementById("weightKG");
-// const bmiNumber = document.querySelector(".BMI-result__number");
-// const bmiParagraph = document.querySelector(".BMI-result__paragraph");
-// const bmiResult = document.querySelector(".BMI-result");
-// const bmiWelcome = document.querySelector(".BMI-welcome");
-// const bmiMeaning = document.querySelector(".BMI-meaning");
-
-// // HELPER FUNCTIONS
-// function isValidHeightandWeight(height, weight) {
-//   const conditions = [
-//     typeof height === "number",
-//     typeof weight === "number",
-//     weight > 0,
-//     height > 0,
-//   ];
-
-//   return conditions.every((condition) => condition);
-// }
-
-// function categorizeBMI(bmi) {
-//   let category;
-
-//   switch (true) {
-//     case bmi < 18.5:
-//       category = "underweight";
-//       break;
-//     case bmi < 24.9:
-//       category = "a healthy weight";
-//       break;
-//     case bmi < 29.9:
-//       category = "overweight";
-//       break;
-//     default:
-//       category = "obese";
-//   }
-
-//   return category;
-// }
-
-// function calculateIdealWeightRange(height) {
-//   const minBMI = 18.5;
-//   const maxBMI = 24.9;
-
-//   const minIdealWeight = ((minBMI * (height * height)) / 10000).toFixed(1);
-//   const maxIdealWeight = ((maxBMI * (height * height)) / 10000).toFixed(1);
-
-//   return {
-//     minIdealWeight: minIdealWeight,
-//     maxIdealWeight: maxIdealWeight,
-//   };
-// }
-
-// function displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
-//   bmiNumber.textContent = bmi;
-//   const bmiParagraphHTML = `Your BMI suggests you're ${category}. Your ideal weight is between <span class="BMI-result__ideal-weight">${minIdealWeight}kgs - ${maxIdealWeight}kgs</span>.`;
-//   bmiParagraph.innerHTML = bmiParagraphHTML;
-//   bmiWelcome.classList.add("hidden");
-//   bmiResult.classList.remove("hidden");
-//   bmiMeaning.style.marginTop = "55.2rem";
-// }
-
-// function displayBMIWelcome() {
-//   if (!metricHeightInput.value && !metricWeightInput.value) {
-//     bmiResult.classList.add("hidden");
-//     bmiWelcome.classList.remove("hidden");
-//     bmiMeaning.style.marginTop = "44rem";
-//   }
-// }
-
-// // EVENT LISTENER CALLBACK FUNCTION
-// function calculateBMI() {
-//   const height = parseFloat(metricHeightInput.value);
-//   const weight = parseFloat(metricWeightInput.value);
-
-//   displayBMIWelcome();
-//   if (!isValidHeightandWeight(height, weight)) return;
-//   const bmi = (weight / ((height * height) / 10000)).toFixed(1);
-//   const category = categorizeBMI(bmi);
-//   const { minIdealWeight, maxIdealWeight } = calculateIdealWeightRange(height);
-//   displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight);
-// }
-
-// // EVENT LISTENERS
-// metricHeightInput.addEventListener("input", calculateBMI);
-// metricWeightInput.addEventListener("input", calculateBMI);
-
-// // IMPERIAL MEASUREMENTS
-
-// // VARIABLES
-// const radioContainer = document.querySelector(".BMI-details__units");
-// const metricMeasurements = document.querySelector(".metric-measurements");
-// const imperialMeasurements = document.querySelector(".imperial-measurements");
-// const imperialFeetInput = document.getElementById("heightFT");
-// const imperialInchesInput = document.getElementById("heightIN");
-// const imperialStoneInput = document.getElementById("weightST");
-// const imperialPoundsInput = document.getElementById("weightLBS");
-
-// // HELPER FUNCTIONS
-// function displayImperialBMIWelcome(heightFT, heightIN, weightST, weightLBS) {
-//   if (!heightFT && !heightIN && !weightST && !weightLBS) {
-//     bmiResult.classList.add("hidden");
-//     bmiWelcome.classList.remove("hidden");
-//     bmiMeaning.style.marginTop = "44rem";
-//   }
-// }
-
-// function isValidImperialMeasurements(heightFT, heightIN, weightST, weightLBS) {
-//   const conditions = [
-//     typeof heightFT === "number",
-//     typeof heightIN === "number",
-//     typeof weightST === "number",
-//     typeof weightLBS === "number",
-//     heightFT > 0,
-//     weightST > 0,
-//   ];
-
-//   return conditions.every((condition) => condition);
-// }
-
-// function calculateImperialIdealWeight(heightInInches) {
-//   const minBMI = 18.5;
-//   const maxBMI = 24.9;
-
-//   const minIdealWeight = (
-//     (minBMI * (heightInInches * heightInInches)) /
-//     703
-//   ).toFixed(1);
-//   const maxIdealWeight = (
-//     (maxBMI * (heightInInches * heightInInches)) /
-//     703
-//   ).toFixed(1);
-
-//   return {
-//     minIdealWeight: minIdealWeight,
-//     maxIdealWeight: maxIdealWeight,
-//   };
-// }
-
-// // prettier-ignore
-// function displayImperialBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
-//   const minWeightST = Math.floor(minIdealWeight / 14);
-//   const minWeightLBS = Math.floor(minIdealWeight - (minWeightST * 14));
-//   const maxWeightST = Math.floor(maxIdealWeight / 14);
-//   const maxWeightLBS = Math.floor(maxIdealWeight - (maxWeightST * 14));
-//   const minWeightUnitLabel = minWeightLBS === 1 ? 'lb' : 'lbs';
-//   const maxWeightUnitLabel = maxWeightLBS === 1 ? 'lb' : 'lbs';
-
-//   bmiNumber.textContent = bmi;
-//   const bmiParagraphHTML = `Your BMI suggests you're ${category}. Your ideal weight is between <span class="BMI-result__ideal-weight">${minWeightST}st ${minWeightLBS}${minWeightUnitLabel} - ${maxWeightST}st ${maxWeightLBS}${maxWeightUnitLabel}</span>.`;
-//   bmiParagraph.innerHTML = bmiParagraphHTML;
-//   bmiWelcome.classList.add("hidden");
-//   bmiResult.classList.remove("hidden");
-//   bmiMeaning.style.marginTop = "55.2rem";
-// }
-
-// function clearMetricInputs() {
-//   metricHeightInput.value = "";
-//   metricWeightInput.value = "";
-// }
-
-// function clearImperialInputs() {
-//   imperialFeetInput.value = "";
-//   imperialInchesInput.value = "";
-//   imperialStoneInput.value = "";
-//   imperialPoundsInput.value = "";
-// }
-
-// // EVENT LISTENER CALLBACK FUNCTIONS
-// function handleRadioBtnChange(e) {
-//   const radioBtn = e.target;
-//   if (radioBtn.id === "imperial") {
-//     imperialMeasurements.classList.toggle("hidden");
-//     metricMeasurements.classList.toggle("hidden");
-//     clearMetricInputs();
-//     displayBMIWelcome();
-//   } else if (radioBtn.id === "metric") {
-//     metricMeasurements.classList.toggle("hidden");
-//     imperialMeasurements.classList.toggle("hidden");
-//     clearImperialInputs();
-//     displayBMIWelcome();
-//   }
-// }
-
-// function calculateImperialBMI() {
-//   const heightFT = parseFloat(imperialFeetInput.value);
-//   const heightIN =
-//     imperialInchesInput.value === ""
-//       ? 0
-//       : parseFloat(imperialInchesInput.value);
-//   const weightST = parseFloat(imperialStoneInput.value);
-//   const weightLBS =
-//     imperialPoundsInput.value === ""
-//       ? 0
-//       : parseFloat(imperialPoundsInput.value);
-//   const heightInInches = heightFT * 12 + heightIN;
-//   const weightInPounds = weightST * 14 + weightLBS;
-
-//   displayImperialBMIWelcome(heightFT, heightIN, weightST, weightLBS);
-//   if (!isValidImperialMeasurements(heightFT, heightIN, weightST, weightLBS))
-//     return;
-//   // prettier-ignore
-//   const bmi = ((weightInPounds / (heightInInches * heightInInches)) * 703).toFixed(1);
-//   const category = categorizeBMI(bmi);
-//   const { minIdealWeight, maxIdealWeight } =
-//     calculateImperialIdealWeight(heightInInches);
-//   displayImperialBMIResult(bmi, category, minIdealWeight, maxIdealWeight);
-// }
-
-// // EVENT LISTENERS
-// radioContainer.addEventListener("change", handleRadioBtnChange);
-// imperialFeetInput.addEventListener("input", calculateImperialBMI);
-// imperialInchesInput.addEventListener("input", calculateImperialBMI);
-// imperialStoneInput.addEventListener("input", calculateImperialBMI);
-// imperialPoundsInput.addEventListener("input", calculateImperialBMI);
-
-// REFACTORED CODE
-
 // VARIABLES
 const metricHeightInput = document.getElementById("heightCM");
 const metricWeightInput = document.getElementById("weightKG");
+const metricMeasurements = document.querySelector(".metric-measurements");
+const metricRadioBtn = document.getElementById("metric");
 const bmiNumber = document.querySelector(".BMI-result__number");
 const bmiParagraph = document.querySelector(".BMI-result__paragraph");
 const bmiResult = document.querySelector(".BMI-result");
 const bmiWelcome = document.querySelector(".BMI-welcome");
 const bmiMeaning = document.querySelector(".BMI-meaning");
-const radioContainer = document.querySelector(".BMI-details__units");
-const metricMeasurements = document.querySelector(".metric-measurements");
 const imperialMeasurements = document.querySelector(".imperial-measurements");
 const imperialFeetInput = document.getElementById("heightFT");
 const imperialInchesInput = document.getElementById("heightIN");
 const imperialStoneInput = document.getElementById("weightST");
 const imperialPoundsInput = document.getElementById("weightLBS");
-const metricRadioBtn = document.getElementById("metric");
 const imperialRadioBtn = document.getElementById("imperial");
-// let heightCM = null;
-// let weightKG = null;
-// let heightFT = null;
-// let heightIN = null;
-// let weightST = null;
-// let weightLBS = null;
+const radioContainer = document.querySelector(".BMI-details__units");
+let heightCM, weightKG, heightFT, heightIN, weightST, weightLBS;
 
-// HELPER FUNCTIONS
+// FUNCTIONS
 function isValidMeasurements(measurements) {
   const { heightCM, weightKG, heightFT, heightIN, weightST, weightLBS } =
     measurements;
@@ -279,8 +53,7 @@ function isValidMeasurements(measurements) {
 function calculateIdealWeightRange(heightMeasurement) {
   const minBMI = 18.5;
   const maxBMI = 24.9;
-  let minIdealWeight = null;
-  let maxIdealWeight = null;
+  let minIdealWeight, maxIdealWeight;
 
   if (metricRadioBtn.checked) {
     minIdealWeight = (
@@ -310,6 +83,12 @@ function calculateIdealWeightRange(heightMeasurement) {
   };
 }
 
+function hideBMIWelcome() {
+  bmiWelcome.classList.add("hidden");
+  bmiResult.classList.remove("hidden");
+  bmiMeaning.style.marginTop = "55.2rem";
+}
+
 function displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
   bmiNumber.textContent = bmi;
   let bmiParagraphHTML = "";
@@ -330,22 +109,21 @@ function displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
   }
 
   bmiParagraph.innerHTML = bmiParagraphHTML;
-  bmiWelcome.classList.add("hidden");
-  bmiResult.classList.remove("hidden");
-  bmiMeaning.style.marginTop = "55.2rem";
+
+  hideBMIWelcome();
 }
 
 function displayBMIWelcome(measurements) {
   const { heightCM, weightKG, heightFT, heightIN, weightST, weightLBS } =
     measurements;
 
+  const allMetricInputsEmpty = !heightCM && !weightKG;
+  const allImperialInputsEmpty =
+    !heightFT && !heightIN && !weightST && !weightLBS;
+
   const shouldDisplayBMIWelcome =
-    (metricRadioBtn.checked && !heightCM && !weightKG) ||
-    (imperialRadioBtn.checked &&
-      !heightFT &&
-      !heightIN &&
-      !weightST &&
-      !weightLBS);
+    (metricRadioBtn.checked && allMetricInputsEmpty) ||
+    (imperialRadioBtn.checked && allImperialInputsEmpty);
 
   if (shouldDisplayBMIWelcome) {
     bmiResult.classList.add("hidden");
@@ -368,10 +146,13 @@ function clearMeasurementInputs() {
   }
 }
 
+function toggleMeasurementsVisibility() {
+  imperialMeasurements.classList.toggle("hidden");
+  metricMeasurements.classList.toggle("hidden");
+}
+
 // EVENT LISTENER CALLBACK FUNCTIONS
 function calculateBMI() {
-  let heightCM, weightKG, heightFT, heightIN, weightST, weightLBS;
-
   if (metricRadioBtn.checked) {
     heightCM = parseFloat(metricHeightInput.value);
     weightKG = parseFloat(metricWeightInput.value);
@@ -384,8 +165,11 @@ function calculateBMI() {
     weightLBS = parseFloat(imperialPoundsInput.value) || 0;
   }
 
-  const heightInInches = heightFT * 12 + heightIN;
-  const weightInPounds = weightST * 14 + weightLBS;
+  const inchesPerFoot = 12;
+  const poundsPerStone = 14;
+
+  const heightInInches = heightFT * inchesPerFoot + heightIN;
+  const weightInPounds = weightST * poundsPerStone + weightLBS;
 
   const measurements = metricRadioBtn.checked
     ? { heightCM, weightKG }
@@ -417,27 +201,32 @@ function calculateBMI() {
 
 function handleRadioBtnChange(e) {
   const radioBtn = e.target;
+  const imperialBtnChecked = radioBtn.id === "imperial";
+  const metricBtnChecked = radioBtn.id === "metric";
 
-  if (radioBtn.id === "imperial") {
-    imperialMeasurements.classList.toggle("hidden");
-    metricMeasurements.classList.toggle("hidden");
-    clearMeasurementInputs();
+  toggleMeasurementsVisibility();
+  clearMeasurementInputs();
+
+  if (imperialBtnChecked) {
     displayBMIWelcome({ heightCM, weightKG });
   }
 
-  if (radioBtn.id === "metric") {
-    metricMeasurements.classList.toggle("hidden");
-    imperialMeasurements.classList.toggle("hidden");
-    clearMeasurementInputs();
+  if (metricBtnChecked) {
     displayBMIWelcome({ heightFT, heightIN, weightST, weightLBS });
   }
 }
 
 // EVENT LISTENERS
+
+// Attach input event listeners to metric inputs
 metricHeightInput.addEventListener("input", calculateBMI);
 metricWeightInput.addEventListener("input", calculateBMI);
-radioContainer.addEventListener("change", handleRadioBtnChange);
+
+// Attach input event listeners to imperial inputs
 imperialFeetInput.addEventListener("input", calculateBMI);
 imperialInchesInput.addEventListener("input", calculateBMI);
 imperialStoneInput.addEventListener("input", calculateBMI);
 imperialPoundsInput.addEventListener("input", calculateBMI);
+
+// Attach change event listener to radio container
+radioContainer.addEventListener("change", handleRadioBtnChange);
