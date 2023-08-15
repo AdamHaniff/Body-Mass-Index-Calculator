@@ -240,12 +240,12 @@ const imperialStoneInput = document.getElementById("weightST");
 const imperialPoundsInput = document.getElementById("weightLBS");
 const metricRadioBtn = document.getElementById("metric");
 const imperialRadioBtn = document.getElementById("imperial");
-let heightCM = null;
-let weightKG = null;
-let heightFT = null;
-let heightIN = null;
-let weightST = null;
-let weightLBS = null;
+// let heightCM = null;
+// let weightKG = null;
+// let heightFT = null;
+// let heightIN = null;
+// let weightST = null;
+// let weightLBS = null;
 
 // HELPER FUNCTIONS
 function isValidMeasurements(measurements) {
@@ -370,77 +370,66 @@ function clearMeasurementInputs() {
 
 // EVENT LISTENER CALLBACK FUNCTIONS
 function calculateBMI() {
-  // METRIC VARIABLES
-  heightCM = parseFloat(metricHeightInput.value);
-  weightKG = parseFloat(metricWeightInput.value);
-
-  // IMPERIAL VARIABLES
-  heightFT = parseFloat(imperialFeetInput.value);
-  heightIN =
-    imperialInchesInput.value === ""
-      ? 0
-      : parseFloat(imperialInchesInput.value);
-  weightST = parseFloat(imperialStoneInput.value);
-  weightLBS =
-    imperialPoundsInput.value === ""
-      ? 0
-      : parseFloat(imperialPoundsInput.value);
-  const heightInInches = heightFT * 12 + heightIN;
-  const weightInPounds = weightST * 14 + weightLBS;
+  let heightCM, weightKG, heightFT, heightIN, weightST, weightLBS;
 
   if (metricRadioBtn.checked) {
-    displayBMIWelcome({ heightCM: heightCM, weightKG: weightKG });
-    if (!isValidMeasurements({ heightCM: heightCM, weightKG: weightKG }))
-      return;
-    const bmi = (weightKG / ((heightCM * heightCM) / 10000)).toFixed(1);
-    const category = categorizeBMI(bmi);
-    const { minIdealWeight, maxIdealWeight } =
-      calculateIdealWeightRange(heightCM);
-    displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight);
+    heightCM = parseFloat(metricHeightInput.value);
+    weightKG = parseFloat(metricWeightInput.value);
   }
 
   if (imperialRadioBtn.checked) {
-    displayBMIWelcome({
-      heightFT: heightFT,
-      heightIN: heightIN,
-      weightST: weightST,
-      weightLBS: weightLBS,
-    });
-    if (
-      !isValidMeasurements({
-        heightFT: heightFT,
-        heightIN: heightIN,
-        weightST: weightST,
-        weightLBS: weightLBS,
-      })
-    )
-      return;
-    // prettier-ignore
-    const bmi = ((weightInPounds / (heightInInches * heightInInches)) * 703).toFixed(1);
-    const category = categorizeBMI(bmi);
-    const { minIdealWeight, maxIdealWeight } =
-      calculateIdealWeightRange(heightInInches);
-    displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight);
+    heightFT = parseFloat(imperialFeetInput.value);
+    heightIN = parseFloat(imperialInchesInput.value) || 0;
+    weightST = parseFloat(imperialStoneInput.value);
+    weightLBS = parseFloat(imperialPoundsInput.value) || 0;
   }
+
+  const heightInInches = heightFT * 12 + heightIN;
+  const weightInPounds = weightST * 14 + weightLBS;
+
+  const measurements = metricRadioBtn.checked
+    ? { heightCM, weightKG }
+    : { heightFT, heightIN, weightST, weightLBS };
+
+  displayBMIWelcome(measurements);
+
+  if (!isValidMeasurements(measurements)) return;
+
+  let bmi;
+
+  if (metricRadioBtn.checked) {
+    bmi = (weightKG / ((heightCM * heightCM) / 10000)).toFixed(1);
+  }
+
+  if (imperialRadioBtn.checked) {
+    bmi = ((weightInPounds / (heightInInches * heightInInches)) * 703).toFixed(
+      1
+    );
+  }
+
+  const category = categorizeBMI(bmi);
+  const { minIdealWeight, maxIdealWeight } = calculateIdealWeightRange(
+    metricRadioBtn.checked ? heightCM : heightInInches
+  );
+
+  displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight);
 }
 
 function handleRadioBtnChange(e) {
   const radioBtn = e.target;
+
   if (radioBtn.id === "imperial") {
     imperialMeasurements.classList.toggle("hidden");
     metricMeasurements.classList.toggle("hidden");
     clearMeasurementInputs();
-    displayBMIWelcome({ heightCM: heightCM, weightKG: weightKG });
-  } else if (radioBtn.id === "metric") {
+    displayBMIWelcome({ heightCM, weightKG });
+  }
+
+  if (radioBtn.id === "metric") {
     metricMeasurements.classList.toggle("hidden");
     imperialMeasurements.classList.toggle("hidden");
     clearMeasurementInputs();
-    displayBMIWelcome({
-      heightFT: heightFT,
-      heightIN: heightIN,
-      weightST: weightST,
-      weightLBS: weightLBS,
-    });
+    displayBMIWelcome({ heightFT, heightIN, weightST, weightLBS });
   }
 }
 
