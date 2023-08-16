@@ -3,6 +3,7 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 
 // VARIABLES
+let heightCM, weightKG, heightFT, heightIN, weightST, weightLBS;
 const metricHeightInput = document.getElementById("heightCM");
 const metricWeightInput = document.getElementById("weightKG");
 const metricMeasurements = document.querySelector(".metric-measurements");
@@ -19,7 +20,8 @@ const imperialStoneInput = document.getElementById("weightST");
 const imperialPoundsInput = document.getElementById("weightLBS");
 const imperialRadioBtn = document.getElementById("imperial");
 const radioContainer = document.querySelector(".BMI-details__units");
-let heightCM, weightKG, heightFT, heightIN, weightST, weightLBS;
+const inchesPerFoot = 12;
+const poundsPerStone = 14;
 
 // FUNCTIONS
 function isValidMeasurements(measurements) {
@@ -98,10 +100,14 @@ function displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
   }
 
   if (imperialRadioBtn.checked) {
-    const minWeightST = Math.floor(minIdealWeight / 14);
-    const minWeightLBS = Math.floor(minIdealWeight - minWeightST * 14);
-    const maxWeightST = Math.floor(maxIdealWeight / 14);
-    const maxWeightLBS = Math.floor(maxIdealWeight - maxWeightST * 14);
+    const minWeightST = Math.floor(minIdealWeight / poundsPerStone);
+    const minWeightLBS = Math.floor(
+      minIdealWeight - minWeightST * poundsPerStone
+    );
+    const maxWeightST = Math.floor(maxIdealWeight / poundsPerStone);
+    const maxWeightLBS = Math.floor(
+      maxIdealWeight - maxWeightST * poundsPerStone
+    );
     const minWeightUnitLabel = minWeightLBS === 1 ? "lb" : "lbs";
     const maxWeightUnitLabel = maxWeightLBS === 1 ? "lb" : "lbs";
 
@@ -164,9 +170,6 @@ function calculateBMI() {
     weightST = parseFloat(imperialStoneInput.value);
     weightLBS = parseFloat(imperialPoundsInput.value) || 0;
   }
-
-  const inchesPerFoot = 12;
-  const poundsPerStone = 14;
 
   const heightInInches = heightFT * inchesPerFoot + heightIN;
   const weightInPounds = weightST * poundsPerStone + weightLBS;
