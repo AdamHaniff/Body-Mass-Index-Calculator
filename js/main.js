@@ -62,6 +62,7 @@ function calculateIdealWeightRange(heightMeasurement) {
       (minBMI * (heightMeasurement * heightMeasurement)) /
       10000
     ).toFixed(1);
+
     maxIdealWeight = (
       (maxBMI * (heightMeasurement * heightMeasurement)) /
       10000
@@ -73,6 +74,7 @@ function calculateIdealWeightRange(heightMeasurement) {
       (minBMI * (heightMeasurement * heightMeasurement)) /
       703
     ).toFixed(1);
+
     maxIdealWeight = (
       (maxBMI * (heightMeasurement * heightMeasurement)) /
       703

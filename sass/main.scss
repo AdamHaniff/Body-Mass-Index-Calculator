@@ -50,30 +50,6 @@ $font-primary: "Inter", sans-serif;
 $font-weight-semiBold: 600;
 $font-weight-bold: 700;
 
-// *************** BASE **************
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  box-sizing: border-box;
-  font-family: $font-primary;
-  background: $color-body-bg;
-}
-
-html,
-body {
-  height: 100%;
-}
-
 // ************* MIXINS **************
 @mixin measurements-styles {
   display: flex;
@@ -127,6 +103,30 @@ body {
   top: 50%;
   right: 2.5rem;
   transform: translateY(-50%);
+}
+
+// *************** BASE **************
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: $font-primary;
+  background: $color-body-bg;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 // ********** MOBILE LAYOUT **********
@@ -494,6 +494,29 @@ body {
       color: $color-limitations-paragraph;
       font-size: 1.6rem;
       line-height: 2.4rem;
+    }
+  }
+}
+
+// **** 320px - 374px MEDIA QUERY ****
+@media (max-width: 23.4375em) {
+  // ********** BMI-DETAILS **********
+  .BMI-details {
+    width: 32rem;
+    gap: 2rem;
+  }
+
+  // ********** BMI-WELCOME **********
+  .BMI-welcome {
+    padding: 2.6rem;
+  }
+
+  // ******** BMI-LIMITATIONS ********
+  .BMI-limitations {
+    padding: 7.2rem 1.9rem 9.6rem;
+
+    .limitation-container {
+      padding: 1.9rem;
     }
   }
 }
