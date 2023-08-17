@@ -21,382 +21,6 @@ body {
   height: 100%;
 }
 
-.header {
-  background: linear-gradient(315deg, #d6e6fe 0%, rgba(214, 252, 254, 0) 100%);
-  border-radius: 0 0 3.5rem 3.5rem;
-  max-height: 64rem;
-  padding: 3.2rem 2.4rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.header__logo {
-  display: block;
-  width: 4rem;
-  height: 4rem;
-  margin-bottom: 2.4rem;
-}
-.header__primary {
-  color: #253347;
-  text-align: center;
-  font-size: 4.8rem;
-  font-weight: 600;
-  line-height: 5.28rem;
-  letter-spacing: -0.24rem;
-  margin-bottom: 2.4rem;
-}
-.header__paragraph {
-  color: #5e6e85;
-  text-align: center;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-  margin-bottom: 4.8rem;
-}
-
-.BMI-details {
-  display: flex;
-  flex-direction: column;
-  max-width: 32.8rem;
-  padding: 2.4rem;
-  gap: 2.4rem;
-  border-radius: 1.6rem;
-  background: #fff;
-  box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
-  position: relative;
-}
-.BMI-details__header {
-  color: #253347;
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-}
-.BMI-details__units {
-  display: flex;
-  gap: 5.3rem;
-}
-.BMI-details__radio-input {
-  display: none;
-}
-.BMI-details__radio-input:checked + .BMI-details__radio-label .BMI-details__radio-button::after {
-  content: "";
-  display: inline-block;
-  width: 3.1rem;
-  height: 3.1rem;
-  background-image: url("../assets/images/radio-button-active.svg");
-}
-.BMI-details__radio-label {
-  display: flex;
-  align-items: center;
-  gap: 1.8rem;
-  color: #253347;
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 2.4rem;
-}
-.BMI-details__radio-button {
-  display: inline-block;
-  width: 3.1rem;
-  height: 3.1rem;
-  border: 0.1rem solid #d8e2e7;
-  border-radius: 50%;
-}
-
-.metric-measurements {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-.metric__label {
-  color: #5e6e85;
-  font-size: 1.4rem;
-  line-height: 2.1rem;
-}
-.metric__input-container {
-  margin-top: 0.8rem;
-  position: relative;
-}
-.metric__input {
-  width: 100%;
-  padding: 2rem 2.4rem;
-  border-radius: 1.2rem;
-  border: 0.1rem solid #d8e2e7;
-  color: #253347;
-  font-family: "Inter", sans-serif;
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-}
-.metric__input::-moz-placeholder {
-  color: rgba(37, 51, 71, 0.25);
-  font-family: "Inter", sans-serif;
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.metric__input::placeholder {
-  color: rgba(37, 51, 71, 0.25);
-  font-family: "Inter", sans-serif;
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.metric__input:focus {
-  border: 0.1rem solid #345ff6;
-  outline: none;
-}
-.metric__input:invalid {
-  border: 0.1rem solid #ff0000;
-}
-.metric__unit {
-  color: #345ff6;
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-  position: absolute;
-  top: 50%;
-  right: 2.5rem;
-  transform: translateY(-50%);
-}
-
-.BMI-welcome {
-  max-width: 28rem;
-  padding: 2.9rem;
-  border-radius: 1.6rem;
-  background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
-  color: #fff;
-}
-.BMI-welcome__header {
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-  margin-bottom: 1.6rem;
-}
-.BMI-welcome__instructions {
-  font-size: 1.4rem;
-  line-height: 2.1rem;
-}
-
-.BMI-result {
-  max-width: 28rem;
-  padding: 3.2rem;
-  border-radius: 1.6rem;
-  background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
-  color: #fff;
-}
-.BMI-result__header {
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 2.4rem;
-  margin-bottom: 0.8rem;
-}
-.BMI-result__number {
-  display: inline-block;
-  font-size: 4.8rem;
-  font-weight: 600;
-  line-height: 5.28rem;
-  letter-spacing: -0.24rem;
-  margin-bottom: 2.4rem;
-}
-.BMI-result__paragraph {
-  font-size: 1.4rem;
-  line-height: 2.1rem;
-}
-.BMI-result__ideal-weight {
-  font-weight: 700;
-}
-
-.imperial-measurements {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-.imperial__label {
-  color: #5e6e85;
-  font-size: 1.4rem;
-  line-height: 2.1rem;
-}
-.imperial__input-containers {
-  margin-top: 0.8rem;
-  display: flex;
-  gap: 1.6rem;
-}
-.imperial__input-container {
-  display: inline-block;
-  position: relative;
-}
-.imperial__input {
-  max-width: 13.2rem;
-  max-height: 6.9rem;
-  padding: 2rem 2.4rem;
-  border-radius: 1.2rem;
-  border: 0.1rem solid #d8e2e7;
-  color: #253347;
-  font-family: "Inter", sans-serif;
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-}
-.imperial__input::-moz-placeholder {
-  color: rgba(37, 51, 71, 0.25);
-  font-family: "Inter", sans-serif;
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.imperial__input::placeholder {
-  color: rgba(37, 51, 71, 0.25);
-  font-family: "Inter", sans-serif;
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.imperial__input:focus {
-  border: 0.1rem solid #345ff6;
-  outline: none;
-}
-.imperial__input:invalid {
-  border: 0.1rem solid #ff0000;
-}
-.imperial__unit {
-  color: #345ff6;
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-  position: absolute;
-  top: 50%;
-  right: 2.5rem;
-  transform: translateY(-50%);
-}
-
-.BMI-meaning {
-  margin-top: 44rem;
-}
-.BMI-meaning__image-container {
-  max-width: 37.5rem;
-}
-.BMI-meaning__image {
-  width: 100%;
-}
-.BMI-meaning__text {
-  padding: 4.8rem 2.4rem 7.161rem;
-}
-.BMI-meaning__header {
-  color: #253347;
-  font-size: 3.2rem;
-  font-weight: 600;
-  line-height: 3.52rem;
-  letter-spacing: -0.16rem;
-  margin-bottom: 3.2rem;
-}
-.BMI-meaning__paragraph {
-  color: #5e6e85;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-}
-
-.improve-BMI {
-  position: relative;
-  padding: 5.6rem 2.896rem 5.6rem 1.904rem;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
-.improve-BMI::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(315deg, #d6e6fe 0%, rgba(214, 252, 254, 0) 100%);
-  opacity: 0.25;
-  z-index: -1;
-}
-
-.improve-container__icon {
-  margin-bottom: 3.2rem;
-}
-.improve-container__header {
-  color: #253347;
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.12rem;
-  margin-bottom: 2.4rem;
-}
-.improve-container__paragraph {
-  color: #5e6e85;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-}
-
-.BMI-limitations {
-  padding: 7.2rem 2.9rem 9.6rem 1.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 5.6rem;
-}
-.BMI-limitations .limitations-text-container {
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
-  text-align: center;
-}
-.BMI-limitations .limitations-text-container__header {
-  color: #253347;
-  font-size: 3.2rem;
-  font-weight: 600;
-  line-height: 3.52rem;
-  letter-spacing: -0.16rem;
-}
-.BMI-limitations .limitations-text-container__paragraph {
-  color: #5e6e85;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-}
-.BMI-limitations__container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-.BMI-limitations .limitation-container {
-  background: #fff;
-  max-width: 32.7rem;
-  padding: 2.4rem;
-  border-radius: 1.6rem;
-  box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.BMI-limitations .limitation-container__icon-header {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-}
-.BMI-limitations .limitation-container__header {
-  color: #253347;
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: -0.1rem;
-}
-.BMI-limitations .limitation-container__paragraph {
-  color: #5e6e85;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-}
-
 @media (max-width: 23.4375em) {
   .BMI-details {
     width: 32rem;
@@ -410,6 +34,374 @@ body {
   }
   .BMI-limitations .limitation-container {
     padding: 1.9rem;
+  }
+}
+@media (min-width: 23.4375) {
+  .header {
+    background: linear-gradient(315deg, #d6e6fe 0%, rgba(214, 252, 254, 0) 100%);
+    border-radius: 0 0 3.5rem 3.5rem;
+    max-height: 64rem;
+    padding: 3.2rem 2.4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header__logo {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 2.4rem;
+  }
+  .header__primary {
+    color: #253347;
+    text-align: center;
+    font-size: 4.8rem;
+    font-weight: 600;
+    line-height: 5.28rem;
+    letter-spacing: -0.24rem;
+    margin-bottom: 2.4rem;
+  }
+  .header__paragraph {
+    color: #5e6e85;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-bottom: 4.8rem;
+  }
+  .BMI-details {
+    display: flex;
+    flex-direction: column;
+    max-width: 32.8rem;
+    padding: 2.4rem;
+    gap: 2.4rem;
+    border-radius: 1.6rem;
+    background: #fff;
+    box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
+    position: relative;
+  }
+  .BMI-details__header {
+    color: #253347;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+  }
+  .BMI-details__units {
+    display: flex;
+    gap: 5.3rem;
+  }
+  .BMI-details__radio-input {
+    display: none;
+  }
+  .BMI-details__radio-input:checked + .BMI-details__radio-label .BMI-details__radio-button::after {
+    content: "";
+    display: inline-block;
+    width: 3.1rem;
+    height: 3.1rem;
+    background-image: url("../assets/images/radio-button-active.svg");
+  }
+  .BMI-details__radio-label {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    color: #253347;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+  }
+  .BMI-details__radio-button {
+    display: inline-block;
+    width: 3.1rem;
+    height: 3.1rem;
+    border: 0.1rem solid #d8e2e7;
+    border-radius: 50%;
+  }
+  .metric-measurements {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  .metric__label {
+    color: #5e6e85;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
+  .metric__input-container {
+    margin-top: 0.8rem;
+    position: relative;
+  }
+  .metric__input {
+    width: 100%;
+    padding: 2rem 2.4rem;
+    border-radius: 1.2rem;
+    border: 0.1rem solid #d8e2e7;
+    color: #253347;
+    font-family: "Inter", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+  }
+  .metric__input::-moz-placeholder {
+    color: rgba(37, 51, 71, 0.25);
+    font-family: "Inter", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .metric__input::placeholder {
+    color: rgba(37, 51, 71, 0.25);
+    font-family: "Inter", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .metric__input:focus {
+    border: 0.1rem solid #345ff6;
+    outline: none;
+  }
+  .metric__input:invalid {
+    border: 0.1rem solid #ff0000;
+  }
+  .metric__unit {
+    color: #345ff6;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+    position: absolute;
+    top: 50%;
+    right: 2.5rem;
+    transform: translateY(-50%);
+  }
+  .BMI-welcome {
+    max-width: 28rem;
+    padding: 2.9rem;
+    border-radius: 1.6rem;
+    background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
+    color: #fff;
+  }
+  .BMI-welcome__header {
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+    margin-bottom: 1.6rem;
+  }
+  .BMI-welcome__instructions {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
+  .BMI-result {
+    max-width: 28rem;
+    padding: 3.2rem;
+    border-radius: 1.6rem;
+    background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
+    color: #fff;
+  }
+  .BMI-result__header {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+    margin-bottom: 0.8rem;
+  }
+  .BMI-result__number {
+    display: inline-block;
+    font-size: 4.8rem;
+    font-weight: 600;
+    line-height: 5.28rem;
+    letter-spacing: -0.24rem;
+    margin-bottom: 2.4rem;
+  }
+  .BMI-result__paragraph {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
+  .BMI-result__ideal-weight {
+    font-weight: 700;
+  }
+  .imperial-measurements {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  .imperial__label {
+    color: #5e6e85;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+  }
+  .imperial__input-containers {
+    margin-top: 0.8rem;
+    display: flex;
+    gap: 1.6rem;
+  }
+  .imperial__input-container {
+    display: inline-block;
+    position: relative;
+  }
+  .imperial__input {
+    max-width: 13.2rem;
+    max-height: 6.9rem;
+    padding: 2rem 2.4rem;
+    border-radius: 1.2rem;
+    border: 0.1rem solid #d8e2e7;
+    color: #253347;
+    font-family: "Inter", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+  }
+  .imperial__input::-moz-placeholder {
+    color: rgba(37, 51, 71, 0.25);
+    font-family: "Inter", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .imperial__input::placeholder {
+    color: rgba(37, 51, 71, 0.25);
+    font-family: "Inter", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .imperial__input:focus {
+    border: 0.1rem solid #345ff6;
+    outline: none;
+  }
+  .imperial__input:invalid {
+    border: 0.1rem solid #ff0000;
+  }
+  .imperial__unit {
+    color: #345ff6;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+    position: absolute;
+    top: 50%;
+    right: 2.5rem;
+    transform: translateY(-50%);
+  }
+  .BMI-meaning {
+    margin-top: 44rem;
+  }
+  .BMI-meaning__image-container {
+    max-width: 37.5rem;
+  }
+  .BMI-meaning__image {
+    width: 100%;
+  }
+  .BMI-meaning__text {
+    padding: 4.8rem 2.4rem 7.161rem;
+  }
+  .BMI-meaning__header {
+    color: #253347;
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 3.52rem;
+    letter-spacing: -0.16rem;
+    margin-bottom: 3.2rem;
+  }
+  .BMI-meaning__paragraph {
+    color: #5e6e85;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+  .improve-BMI {
+    position: relative;
+    padding: 5.6rem 2.896rem 5.6rem 1.904rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .improve-BMI::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(315deg, #d6e6fe 0%, rgba(214, 252, 254, 0) 100%);
+    opacity: 0.25;
+    z-index: -1;
+  }
+  .improve-container__icon {
+    margin-bottom: 3.2rem;
+  }
+  .improve-container__header {
+    color: #253347;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+    margin-bottom: 2.4rem;
+  }
+  .improve-container__paragraph {
+    color: #5e6e85;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+  .BMI-limitations {
+    padding: 7.2rem 2.9rem 9.6rem 1.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5.6rem;
+  }
+  .BMI-limitations .limitations-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    text-align: center;
+  }
+  .BMI-limitations .limitations-text-container__header {
+    color: #253347;
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 3.52rem;
+    letter-spacing: -0.16rem;
+  }
+  .BMI-limitations .limitations-text-container__paragraph {
+    color: #5e6e85;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+  .BMI-limitations__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  .BMI-limitations .limitation-container {
+    background: #fff;
+    max-width: 32.7rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .BMI-limitations .limitation-container__icon-header {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+  .BMI-limitations .limitation-container__header {
+    color: #253347;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.1rem;
+  }
+  .BMI-limitations .limitation-container__paragraph {
+    color: #5e6e85;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
   }
 }
 .hidden {

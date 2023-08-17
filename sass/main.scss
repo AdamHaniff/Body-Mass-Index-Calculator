@@ -129,374 +129,7 @@ body {
   height: 100%;
 }
 
-// ********** MOBILE LAYOUT **********
-
-// ************* HEADER **************
-.header {
-  background: $color-header-bg;
-  border-radius: 0 0 3.5rem 3.5rem;
-  max-height: 64rem;
-  padding: 3.2rem 2.4rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  &__logo {
-    display: block;
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 2.4rem;
-  }
-
-  &__primary {
-    color: $color-header-primary;
-    text-align: center;
-    font-size: 4.8rem;
-    font-weight: $font-weight-semiBold;
-    line-height: 5.28rem;
-    letter-spacing: -0.24rem;
-    margin-bottom: 2.4rem;
-  }
-
-  &__paragraph {
-    color: $color-header-paragraph;
-    text-align: center;
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-    margin-bottom: 4.8rem;
-  }
-}
-
-// *********** BMI DETAILS ***********
-.BMI-details {
-  display: flex;
-  flex-direction: column;
-  max-width: 32.8rem;
-  padding: 2.4rem;
-  gap: 2.4rem;
-  border-radius: 1.6rem;
-  background: $color-details-bg;
-  box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
-  position: relative;
-
-  &__header {
-    color: $color-details-header;
-    font-size: 2.4rem;
-    font-weight: $font-weight-semiBold;
-    letter-spacing: -0.12rem;
-  }
-
-  &__units {
-    display: flex;
-    gap: 5.3rem;
-  }
-
-  &__radio {
-    &-input {
-      display: none;
-
-      &:checked + .BMI-details__radio-label .BMI-details__radio-button::after {
-        content: "";
-        display: inline-block;
-        width: 3.1rem;
-        height: 3.1rem;
-        background-image: url("../assets/images/radio-button-active.svg");
-      }
-    }
-
-    &-label {
-      display: flex;
-      align-items: center;
-      gap: 1.8rem;
-      color: $color-radio-label;
-      font-size: 1.6rem;
-      font-weight: $font-weight-semiBold;
-      line-height: 2.4rem;
-    }
-
-    &-button {
-      display: inline-block;
-      width: 3.1rem;
-      height: 3.1rem;
-      border: 0.1rem solid $color-radio-default;
-      border-radius: 50%;
-    }
-  }
-}
-
-// ******* METRIC MEASUREMENTS *******
-.metric {
-  &-measurements {
-    @include measurements-styles;
-  }
-
-  &__label {
-    @include measurements-labels;
-  }
-
-  &__input-container {
-    margin-top: 0.8rem;
-    position: relative;
-  }
-
-  &__input {
-    width: 100%;
-    @include measurements-inputs;
-
-    &::placeholder {
-      @include measurements-placeholders;
-    }
-
-    &:focus {
-      @include measurements-focus-styles;
-    }
-
-    &:invalid {
-      @include measurements-invalid-styles;
-    }
-  }
-
-  &__unit {
-    @include measurements-units;
-  }
-}
-
-// *********** BMI-WELCOME ***********
-.BMI-welcome {
-  max-width: 28rem;
-  padding: 2.9rem;
-  border-radius: 1.6rem;
-  background: $color-bmi-result-bg;
-  color: $color-bmi-result-text;
-
-  &__header {
-    font-size: 2.4rem;
-    font-weight: $font-weight-semiBold;
-    letter-spacing: -0.12rem;
-    margin-bottom: 1.6rem;
-  }
-
-  &__instructions {
-    font-size: 1.4rem;
-    line-height: 2.1rem;
-  }
-}
-
-// ************ BMI-RESULT ***********
-.BMI-result {
-  max-width: 28rem;
-  padding: 3.2rem;
-  border-radius: 1.6rem;
-  background: $color-bmi-result-bg;
-  color: $color-bmi-result-text;
-
-  &__header {
-    font-size: 1.6rem;
-    font-weight: $font-weight-semiBold;
-    line-height: 2.4rem;
-    margin-bottom: 0.8rem;
-  }
-
-  &__number {
-    display: inline-block;
-    font-size: 4.8rem;
-    font-weight: $font-weight-semiBold;
-    line-height: 5.28rem;
-    letter-spacing: -0.24rem;
-    margin-bottom: 2.4rem;
-  }
-
-  &__paragraph {
-    font-size: 1.4rem;
-    line-height: 2.1rem;
-  }
-
-  &__ideal-weight {
-    font-weight: $font-weight-bold;
-  }
-}
-
-// ****** IMPERIAL MEASUREMENTS ******
-.imperial {
-  &-measurements {
-    @include measurements-styles;
-  }
-
-  &__label {
-    @include measurements-labels;
-  }
-
-  &__input-containers {
-    margin-top: 0.8rem;
-    display: flex;
-    gap: 1.6rem;
-  }
-
-  &__input-container {
-    display: inline-block;
-    position: relative;
-  }
-
-  &__input {
-    max-width: 13.2rem;
-    max-height: 6.9rem;
-    @include measurements-inputs;
-
-    &::placeholder {
-      @include measurements-placeholders;
-    }
-
-    &:focus {
-      @include measurements-focus-styles;
-    }
-
-    &:invalid {
-      @include measurements-invalid-styles;
-    }
-  }
-
-  &__unit {
-    @include measurements-units;
-  }
-}
-
-// *********** BMI-MEANING ***********
-.BMI-meaning {
-  margin-top: 44rem;
-
-  &__image-container {
-    max-width: 37.5rem;
-  }
-
-  &__image {
-    width: 100%;
-  }
-
-  &__text {
-    padding: 4.8rem 2.4rem 7.161rem;
-  }
-
-  &__header {
-    color: $color-meaning-header;
-    font-size: 3.2rem;
-    font-weight: $font-weight-semiBold;
-    line-height: 3.52rem;
-    letter-spacing: -0.16rem;
-    margin-bottom: 3.2rem;
-  }
-
-  &__paragraph {
-    color: $color-meaning-paragraph;
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-  }
-}
-
-// *********** IMPROVE-BMI ***********
-.improve-BMI {
-  position: relative;
-  padding: 5.6rem 2.896rem 5.6rem 1.904rem;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: $color-improve-bg;
-    opacity: 0.25;
-    z-index: -1;
-  }
-}
-
-.improve-container {
-  &__icon {
-    margin-bottom: 3.2rem;
-  }
-
-  &__header {
-    color: $color-improve-header;
-    font-size: 2.4rem;
-    font-weight: $font-weight-semiBold;
-    letter-spacing: -0.12rem;
-    margin-bottom: 2.4rem;
-  }
-
-  &__paragraph {
-    color: $color-improve-paragraph;
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-  }
-}
-
-// ********* BMI-LIMITATIONS *********
-.BMI-limitations {
-  padding: 7.2rem 2.9rem 9.6rem 1.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 5.6rem;
-
-  .limitations-text-container {
-    display: flex;
-    flex-direction: column;
-    gap: 3.2rem;
-    text-align: center;
-
-    &__header {
-      color: $color-limitations-header;
-      font-size: 3.2rem;
-      font-weight: $font-weight-semiBold;
-      line-height: 3.52rem;
-      letter-spacing: -0.16rem;
-    }
-
-    &__paragraph {
-      color: $color-limitations-paragraph;
-      font-size: 1.6rem;
-      line-height: 2.4rem;
-    }
-  }
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-  }
-
-  .limitation-container {
-    background: $color-limitations-bg;
-    max-width: 32.7rem;
-    padding: 2.4rem;
-    border-radius: 1.6rem;
-    box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-    &__icon-header {
-      display: flex;
-      align-items: center;
-      gap: 1.6rem;
-    }
-
-    &__header {
-      color: $color-limitations-header;
-      font-size: 2rem;
-      font-weight: $font-weight-semiBold;
-      letter-spacing: -0.1rem;
-    }
-
-    &__paragraph {
-      color: $color-limitations-paragraph;
-      font-size: 1.6rem;
-      line-height: 2.4rem;
-    }
-  }
-}
+// ********* MOBILE LAYOUTS *********
 
 // **** 320px - 374px MEDIA QUERY ****
 @media (max-width: 23.4375em) {
@@ -517,6 +150,378 @@ body {
 
     .limitation-container {
       padding: 1.9rem;
+    }
+  }
+}
+
+// ******** 375px MEDIA QUERY ********
+@media (min-width: 23.4375) {
+  // ************ HEADER *************
+  .header {
+    background: $color-header-bg;
+    border-radius: 0 0 3.5rem 3.5rem;
+    max-height: 64rem;
+    padding: 3.2rem 2.4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__logo {
+      display: block;
+      width: 4rem;
+      height: 4rem;
+      margin-bottom: 2.4rem;
+    }
+
+    &__primary {
+      color: $color-header-primary;
+      text-align: center;
+      font-size: 4.8rem;
+      font-weight: $font-weight-semiBold;
+      line-height: 5.28rem;
+      letter-spacing: -0.24rem;
+      margin-bottom: 2.4rem;
+    }
+
+    &__paragraph {
+      color: $color-header-paragraph;
+      text-align: center;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      margin-bottom: 4.8rem;
+    }
+  }
+
+  // ********** BMI DETAILS **********
+  .BMI-details {
+    display: flex;
+    flex-direction: column;
+    max-width: 32.8rem;
+    padding: 2.4rem;
+    gap: 2.4rem;
+    border-radius: 1.6rem;
+    background: $color-details-bg;
+    box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
+    position: relative;
+
+    &__header {
+      color: $color-details-header;
+      font-size: 2.4rem;
+      font-weight: $font-weight-semiBold;
+      letter-spacing: -0.12rem;
+    }
+
+    &__units {
+      display: flex;
+      gap: 5.3rem;
+    }
+
+    &__radio {
+      &-input {
+        display: none;
+
+        &:checked
+          + .BMI-details__radio-label
+          .BMI-details__radio-button::after {
+          content: "";
+          display: inline-block;
+          width: 3.1rem;
+          height: 3.1rem;
+          background-image: url("../assets/images/radio-button-active.svg");
+        }
+      }
+
+      &-label {
+        display: flex;
+        align-items: center;
+        gap: 1.8rem;
+        color: $color-radio-label;
+        font-size: 1.6rem;
+        font-weight: $font-weight-semiBold;
+        line-height: 2.4rem;
+      }
+
+      &-button {
+        display: inline-block;
+        width: 3.1rem;
+        height: 3.1rem;
+        border: 0.1rem solid $color-radio-default;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  // ****** METRIC MEASUREMENTS ******
+  .metric {
+    &-measurements {
+      @include measurements-styles;
+    }
+
+    &__label {
+      @include measurements-labels;
+    }
+
+    &__input-container {
+      margin-top: 0.8rem;
+      position: relative;
+    }
+
+    &__input {
+      width: 100%;
+      @include measurements-inputs;
+
+      &::placeholder {
+        @include measurements-placeholders;
+      }
+
+      &:focus {
+        @include measurements-focus-styles;
+      }
+
+      &:invalid {
+        @include measurements-invalid-styles;
+      }
+    }
+
+    &__unit {
+      @include measurements-units;
+    }
+  }
+
+  // ********** BMI-WELCOME **********
+  .BMI-welcome {
+    max-width: 28rem;
+    padding: 2.9rem;
+    border-radius: 1.6rem;
+    background: $color-bmi-result-bg;
+    color: $color-bmi-result-text;
+
+    &__header {
+      font-size: 2.4rem;
+      font-weight: $font-weight-semiBold;
+      letter-spacing: -0.12rem;
+      margin-bottom: 1.6rem;
+    }
+
+    &__instructions {
+      font-size: 1.4rem;
+      line-height: 2.1rem;
+    }
+  }
+
+  // *********** BMI-RESULT **********
+  .BMI-result {
+    max-width: 28rem;
+    padding: 3.2rem;
+    border-radius: 1.6rem;
+    background: $color-bmi-result-bg;
+    color: $color-bmi-result-text;
+
+    &__header {
+      font-size: 1.6rem;
+      font-weight: $font-weight-semiBold;
+      line-height: 2.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    &__number {
+      display: inline-block;
+      font-size: 4.8rem;
+      font-weight: $font-weight-semiBold;
+      line-height: 5.28rem;
+      letter-spacing: -0.24rem;
+      margin-bottom: 2.4rem;
+    }
+
+    &__paragraph {
+      font-size: 1.4rem;
+      line-height: 2.1rem;
+    }
+
+    &__ideal-weight {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  // ***** IMPERIAL MEASUREMENTS *****
+  .imperial {
+    &-measurements {
+      @include measurements-styles;
+    }
+
+    &__label {
+      @include measurements-labels;
+    }
+
+    &__input-containers {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 1.6rem;
+    }
+
+    &__input-container {
+      display: inline-block;
+      position: relative;
+    }
+
+    &__input {
+      max-width: 13.2rem;
+      max-height: 6.9rem;
+      @include measurements-inputs;
+
+      &::placeholder {
+        @include measurements-placeholders;
+      }
+
+      &:focus {
+        @include measurements-focus-styles;
+      }
+
+      &:invalid {
+        @include measurements-invalid-styles;
+      }
+    }
+
+    &__unit {
+      @include measurements-units;
+    }
+  }
+
+  // ********** BMI-MEANING **********
+  .BMI-meaning {
+    margin-top: 44rem;
+
+    &__image-container {
+      max-width: 37.5rem;
+    }
+
+    &__image {
+      width: 100%;
+    }
+
+    &__text {
+      padding: 4.8rem 2.4rem 7.161rem;
+    }
+
+    &__header {
+      color: $color-meaning-header;
+      font-size: 3.2rem;
+      font-weight: $font-weight-semiBold;
+      line-height: 3.52rem;
+      letter-spacing: -0.16rem;
+      margin-bottom: 3.2rem;
+    }
+
+    &__paragraph {
+      color: $color-meaning-paragraph;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+  }
+
+  // ********** IMPROVE-BMI **********
+  .improve-BMI {
+    position: relative;
+    padding: 5.6rem 2.896rem 5.6rem 1.904rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $color-improve-bg;
+      opacity: 0.25;
+      z-index: -1;
+    }
+  }
+
+  .improve-container {
+    &__icon {
+      margin-bottom: 3.2rem;
+    }
+
+    &__header {
+      color: $color-improve-header;
+      font-size: 2.4rem;
+      font-weight: $font-weight-semiBold;
+      letter-spacing: -0.12rem;
+      margin-bottom: 2.4rem;
+    }
+
+    &__paragraph {
+      color: $color-improve-paragraph;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+  }
+
+  // ******** BMI-LIMITATIONS ********
+  .BMI-limitations {
+    padding: 7.2rem 2.9rem 9.6rem 1.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5.6rem;
+
+    .limitations-text-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+      text-align: center;
+
+      &__header {
+        color: $color-limitations-header;
+        font-size: 3.2rem;
+        font-weight: $font-weight-semiBold;
+        line-height: 3.52rem;
+        letter-spacing: -0.16rem;
+      }
+
+      &__paragraph {
+        color: $color-limitations-paragraph;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+      }
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .limitation-container {
+      background: $color-limitations-bg;
+      max-width: 32.7rem;
+      padding: 2.4rem;
+      border-radius: 1.6rem;
+      box-shadow: 1.6rem 3.2rem 5.6rem 0 rgba(143, 174, 207, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      &__icon-header {
+        display: flex;
+        align-items: center;
+        gap: 1.6rem;
+      }
+
+      &__header {
+        color: $color-limitations-header;
+        font-size: 2rem;
+        font-weight: $font-weight-semiBold;
+        letter-spacing: -0.1rem;
+      }
+
+      &__paragraph {
+        color: $color-limitations-paragraph;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+      }
     }
   }
 }
