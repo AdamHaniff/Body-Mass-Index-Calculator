@@ -105,6 +105,12 @@ $font-weight-bold: 700;
   transform: translateY(-50%);
 }
 
+@mixin center-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 // *************** BASE **************
 *,
 *::before,
@@ -192,7 +198,7 @@ body {
     }
   }
 
-  // ********** BMI DETAILS **********
+  // ********** BMI-DETAILS **********
   .BMI-details {
     display: flex;
     flex-direction: column;
@@ -524,6 +530,59 @@ body {
       }
     }
   }
+}
+
+// **** 376px - 767px MEDIA QUERY ****
+@media (min-width: 23.5em) {
+  // ************ HEADER *************
+  .header {
+    &__primary,
+    &__paragraph {
+      max-width: 32.8rem;
+    }
+  }
+  // ********** BMI-MEANING **********
+  .BMI-meaning {
+    @include center-element;
+
+    &__text {
+      @include center-element;
+    }
+
+    &__header,
+    &__paragraph {
+      text-align: center;
+    }
+
+    &__paragraph {
+      max-width: 32.8rem;
+    }
+  }
+
+  // ********** IMPROVE-BMI **********
+  .improve-container {
+    @include center-element;
+
+    &__paragraph {
+      text-align: center;
+      max-width: 32.8rem;
+    }
+  }
+
+  // ******** BMI-LIMITATIONS ********
+  .BMI-limitations {
+    align-items: center;
+
+    .limitations-text-container {
+      &__paragraph {
+        max-width: 32.8rem;
+      }
+    }
+  }
+}
+
+// ********** TABLET LAYOUT **********
+@media (min-width: 48em) {
 }
 
 // *** CLASS USED WITH JAVASCRIPT ***

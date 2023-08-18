@@ -404,6 +404,42 @@ body {
     line-height: 2.4rem;
   }
 }
+@media (min-width: 23.5em) {
+  .header__primary, .header__paragraph {
+    max-width: 32.8rem;
+  }
+  .BMI-meaning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .BMI-meaning__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .BMI-meaning__header, .BMI-meaning__paragraph {
+    text-align: center;
+  }
+  .BMI-meaning__paragraph {
+    max-width: 32.8rem;
+  }
+  .improve-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .improve-container__paragraph {
+    text-align: center;
+    max-width: 32.8rem;
+  }
+  .BMI-limitations {
+    align-items: center;
+  }
+  .BMI-limitations .limitations-text-container__paragraph {
+    max-width: 32.8rem;
+  }
+}
 .hidden {
   display: none;
 }/*# sourceMappingURL=main.css.map */
