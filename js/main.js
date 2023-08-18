@@ -20,6 +20,7 @@ const imperialStoneInput = document.getElementById("weightST");
 const imperialPoundsInput = document.getElementById("weightLBS");
 const imperialRadioBtn = document.getElementById("imperial");
 const radioContainer = document.querySelector(".BMI-details__units");
+const viewportWidth = window.innerWidth;
 const inchesPerFoot = 12;
 const poundsPerStone = 14;
 
@@ -90,6 +91,7 @@ function calculateIdealWeightRange(heightMeasurement) {
 function hideBMIWelcome() {
   bmiWelcome.classList.add("hidden");
   bmiResult.classList.remove("hidden");
+  if (viewportWidth > 767) return;
   bmiMeaning.style.marginTop = "55.2rem";
 }
 
@@ -136,6 +138,7 @@ function displayBMIWelcome(measurements) {
   if (shouldDisplayBMIWelcome) {
     bmiResult.classList.add("hidden");
     bmiWelcome.classList.remove("hidden");
+    if (viewportWidth > 767) return;
     bmiMeaning.style.marginTop = "44rem";
   }
 }

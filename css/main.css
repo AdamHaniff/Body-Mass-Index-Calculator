@@ -21,7 +21,7 @@ body {
   height: 100%;
 }
 
-@media (max-width: 23.4375em) {
+@media only screen and (max-width: 23.4375em) {
   .BMI-details {
     width: 32rem;
     gap: 2rem;
@@ -36,7 +36,7 @@ body {
     padding: 1.9rem;
   }
 }
-@media (min-width: 23.4375) {
+@media only screen and (min-width: 23.4375) {
   .header {
     background: linear-gradient(315deg, #d6e6fe 0%, rgba(214, 252, 254, 0) 100%);
     border-radius: 0 0 3.5rem 3.5rem;
@@ -53,6 +53,7 @@ body {
     margin-bottom: 2.4rem;
   }
   .header__primary {
+    max-width: 32.7rem;
     color: #253347;
     text-align: center;
     font-size: 4.8rem;
@@ -62,6 +63,7 @@ body {
     margin-bottom: 2.4rem;
   }
   .header__paragraph {
+    max-width: 32.7rem;
     color: #5e6e85;
     text-align: center;
     font-size: 1.6rem;
@@ -311,6 +313,7 @@ body {
     margin-bottom: 3.2rem;
   }
   .BMI-meaning__paragraph {
+    max-width: 32.8rem;
     color: #5e6e85;
     font-size: 1.6rem;
     line-height: 2.4rem;
@@ -344,6 +347,7 @@ body {
     margin-bottom: 2.4rem;
   }
   .improve-container__paragraph {
+    max-width: 32.7rem;
     color: #5e6e85;
     font-size: 1.6rem;
     line-height: 2.4rem;
@@ -368,6 +372,7 @@ body {
     letter-spacing: -0.16rem;
   }
   .BMI-limitations .limitations-text-container__paragraph {
+    max-width: 32.7rem;
     color: #5e6e85;
     font-size: 1.6rem;
     line-height: 2.4rem;
@@ -404,10 +409,7 @@ body {
     line-height: 2.4rem;
   }
 }
-@media (min-width: 23.5em) {
-  .header__primary, .header__paragraph {
-    max-width: 32.8rem;
-  }
+@media only screen and (min-width: 23.5em) {
   .BMI-meaning {
     display: flex;
     flex-direction: column;
@@ -421,9 +423,6 @@ body {
   .BMI-meaning__header, .BMI-meaning__paragraph {
     text-align: center;
   }
-  .BMI-meaning__paragraph {
-    max-width: 32.8rem;
-  }
   .improve-container {
     display: flex;
     flex-direction: column;
@@ -431,13 +430,54 @@ body {
   }
   .improve-container__paragraph {
     text-align: center;
-    max-width: 32.8rem;
   }
   .BMI-limitations {
     align-items: center;
   }
-  .BMI-limitations .limitations-text-container__paragraph {
-    max-width: 32.8rem;
+}
+@media only screen and (min-width: 48em) {
+  .header {
+    padding: 3.2rem 0 0;
+  }
+  .header__logo {
+    margin-bottom: 4rem;
+  }
+  .header__primary {
+    max-width: 68.6rem;
+  }
+  .header__paragraph {
+    max-width: 68.6rem;
+    margin-bottom: 4rem;
+  }
+  .BMI-details {
+    max-width: 68.6rem;
+    padding: 3.2rem;
+    gap: 3.2rem;
+  }
+  .BMI-details__units {
+    gap: 22.4rem;
+  }
+  .metric-measurements {
+    flex-direction: row;
+    gap: 2.4rem;
+  }
+  .BMI-welcome {
+    max-width: 62.2rem;
+    padding: 3.2rem;
+    border-radius: 1.6rem 99.9rem 99.9rem 1.6rem;
+  }
+  .BMI-result {
+    max-width: 62.2rem;
+    border-radius: 1.6rem 99.9rem 99.9rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .BMI-result__number {
+    margin-bottom: 0;
+  }
+  .BMI-result__paragraph {
+    max-width: 26.7rem;
   }
 }
 .hidden {

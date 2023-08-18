@@ -138,7 +138,7 @@ body {
 // ********* MOBILE LAYOUTS *********
 
 // **** 320px - 374px MEDIA QUERY ****
-@media (max-width: 23.4375em) {
+@media only screen and (max-width: 23.4375em) {
   // ********** BMI-DETAILS **********
   .BMI-details {
     width: 32rem;
@@ -161,7 +161,7 @@ body {
 }
 
 // ******** 375px MEDIA QUERY ********
-@media (min-width: 23.4375) {
+@media only screen and (min-width: 23.4375) {
   // ************ HEADER *************
   .header {
     background: $color-header-bg;
@@ -180,6 +180,7 @@ body {
     }
 
     &__primary {
+      max-width: 32.7rem;
       color: $color-header-primary;
       text-align: center;
       font-size: 4.8rem;
@@ -190,6 +191,7 @@ body {
     }
 
     &__paragraph {
+      max-width: 32.7rem;
       color: $color-header-paragraph;
       text-align: center;
       font-size: 1.6rem;
@@ -419,6 +421,7 @@ body {
     }
 
     &__paragraph {
+      max-width: 32.8rem;
       color: $color-meaning-paragraph;
       font-size: 1.6rem;
       line-height: 2.4rem;
@@ -460,6 +463,7 @@ body {
     }
 
     &__paragraph {
+      max-width: 32.7rem;
       color: $color-improve-paragraph;
       font-size: 1.6rem;
       line-height: 2.4rem;
@@ -488,6 +492,7 @@ body {
       }
 
       &__paragraph {
+        max-width: 32.7rem;
         color: $color-limitations-paragraph;
         font-size: 1.6rem;
         line-height: 2.4rem;
@@ -533,14 +538,7 @@ body {
 }
 
 // **** 376px - 767px MEDIA QUERY ****
-@media (min-width: 23.5em) {
-  // ************ HEADER *************
-  .header {
-    &__primary,
-    &__paragraph {
-      max-width: 32.8rem;
-    }
-  }
+@media only screen and (min-width: 23.5em) {
   // ********** BMI-MEANING **********
   .BMI-meaning {
     @include center-element;
@@ -553,10 +551,6 @@ body {
     &__paragraph {
       text-align: center;
     }
-
-    &__paragraph {
-      max-width: 32.8rem;
-    }
   }
 
   // ********** IMPROVE-BMI **********
@@ -565,24 +559,83 @@ body {
 
     &__paragraph {
       text-align: center;
-      max-width: 32.8rem;
     }
   }
 
   // ******** BMI-LIMITATIONS ********
   .BMI-limitations {
     align-items: center;
-
-    .limitations-text-container {
-      &__paragraph {
-        max-width: 32.8rem;
-      }
-    }
   }
 }
 
 // ********** TABLET LAYOUT **********
-@media (min-width: 48em) {
+
+// ******** 768px MEDIA QUERY ********
+@media only screen and (min-width: 48em) {
+  // ************* HEADER ************
+  .header {
+    padding: 3.2rem 0 0;
+
+    &__logo {
+      margin-bottom: 4rem;
+    }
+
+    &__primary {
+      max-width: 68.6rem;
+    }
+
+    &__paragraph {
+      max-width: 68.6rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  // ********** BMI-DETAILS **********
+  .BMI-details {
+    max-width: 68.6rem;
+    padding: 3.2rem;
+    gap: 3.2rem;
+
+    &__units {
+      gap: 22.4rem;
+    }
+  }
+
+  // ****** METRIC MEASUREMENTS ******
+  .metric {
+    &-measurements {
+      flex-direction: row;
+      gap: 2.4rem;
+    }
+  }
+
+  // ********** BMI-WELCOME **********
+  .BMI-welcome {
+    max-width: 62.2rem;
+    padding: 3.2rem;
+    border-radius: 1.6rem 99.9rem 99.9rem 1.6rem;
+  }
+
+  // ********** BMI-RESULT ***********
+  .BMI-result {
+    max-width: 62.2rem;
+    border-radius: 1.6rem 99.9rem 99.9rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__number {
+      margin-bottom: 0;
+    }
+
+    &__paragraph {
+      max-width: 26.7rem;
+    }
+  }
+
+  // ***** IMPERIAL MEASUREMENTS *****
+  .imperial {
+  }
 }
 
 // *** CLASS USED WITH JAVASCRIPT ***
