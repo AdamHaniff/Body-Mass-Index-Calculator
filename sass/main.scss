@@ -105,6 +105,13 @@ $font-weight-bold: 700;
   transform: translateY(-50%);
 }
 
+@mixin BMI-welcome-result-styles {
+  max-width: 28rem;
+  border-radius: 1.6rem;
+  background: $color-bmi-result-bg;
+  color: $color-bmi-result-text;
+}
+
 @mixin center-element {
   display: flex;
   flex-direction: column;
@@ -298,11 +305,8 @@ body {
 
   // ********** BMI-WELCOME **********
   .BMI-welcome {
-    max-width: 28rem;
+    @include BMI-welcome-result-styles;
     padding: 2.9rem;
-    border-radius: 1.6rem;
-    background: $color-bmi-result-bg;
-    color: $color-bmi-result-text;
 
     &__header {
       font-size: 2.4rem;
@@ -319,11 +323,8 @@ body {
 
   // *********** BMI-RESULT **********
   .BMI-result {
-    max-width: 28rem;
+    @include BMI-welcome-result-styles;
     padding: 3.2rem;
-    border-radius: 1.6rem;
-    background: $color-bmi-result-bg;
-    color: $color-bmi-result-text;
 
     &__header {
       font-size: 1.6rem;
@@ -593,6 +594,7 @@ body {
   // ********** BMI-DETAILS **********
   .BMI-details {
     max-width: 68.6rem;
+    width: 68.6rem;
     padding: 3.2rem;
     gap: 3.2rem;
 
@@ -635,7 +637,22 @@ body {
 
   // ***** IMPERIAL MEASUREMENTS *****
   .imperial {
+    &-measurements {
+      gap: 2.4rem;
+    }
+
+    &__input-containers {
+      gap: 2.4rem;
+    }
+
+    &__input {
+      max-width: 29.9rem;
+    }
   }
+}
+
+// *********** BMI-MEANING ***********
+.BMI-meaning {
 }
 
 // *** CLASS USED WITH JAVASCRIPT ***

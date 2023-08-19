@@ -181,10 +181,10 @@ body {
   }
   .BMI-welcome {
     max-width: 28rem;
-    padding: 2.9rem;
     border-radius: 1.6rem;
     background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
     color: #fff;
+    padding: 2.9rem;
   }
   .BMI-welcome__header {
     font-size: 2.4rem;
@@ -198,10 +198,10 @@ body {
   }
   .BMI-result {
     max-width: 28rem;
-    padding: 3.2rem;
     border-radius: 1.6rem;
     background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
     color: #fff;
+    padding: 3.2rem;
   }
   .BMI-result__header {
     font-size: 1.6rem;
@@ -451,6 +451,7 @@ body {
   }
   .BMI-details {
     max-width: 68.6rem;
+    width: 68.6rem;
     padding: 3.2rem;
     gap: 3.2rem;
   }
@@ -478,6 +479,15 @@ body {
   }
   .BMI-result__paragraph {
     max-width: 26.7rem;
+  }
+  .imperial-measurements {
+    gap: 2.4rem;
+  }
+  .imperial__input-containers {
+    gap: 2.4rem;
+  }
+  .imperial__input {
+    max-width: 29.9rem;
   }
 }
 .hidden {
