@@ -40,6 +40,7 @@ $color-improve-paragraph: #5e6e85;
 $color-limitations-header: #253347;
 $color-limitations-paragraph: #5e6e85;
 $color-limitations-bg: #fff;
+$color-man-eating-bg: #e7f5fe;
 
 // ************ TYPOGRAPHY ***********
 
@@ -653,6 +654,36 @@ body {
 
 // *********** BMI-MEANING ***********
 .BMI-meaning {
+  margin-top: 27.7rem;
+  flex-direction: row;
+  align-items: initial;
+  position: relative;
+
+  &__image-container {
+    // width: 36.1rem;
+    width: 31.9rem;
+    height: 29.9rem;
+    background: $color-man-eating-bg;
+    position: relative;
+    top: 11.2rem;
+    border-radius: 0 3.2rem 3.2rem 0;
+
+    &::before {
+      content: "";
+      display: block;
+      background-image: url("../assets/images/image-man-eating-no-bg.png");
+      width: 31.9rem;
+      height: 41.2rem;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: -11.2rem;
+      right: 0;
+    }
+  }
+
+  &__image {
+    display: none;
+  }
 }
 
 // *** CLASS USED WITH JAVASCRIPT ***
