@@ -650,39 +650,57 @@ body {
       max-width: 29.9rem;
     }
   }
-}
 
-// *********** BMI-MEANING ***********
-.BMI-meaning {
-  margin-top: 27.7rem;
-  flex-direction: row;
-  align-items: initial;
-  position: relative;
-
-  &__image-container {
-    // width: 36.1rem;
-    width: 31.9rem;
-    height: 29.9rem;
-    background: $color-man-eating-bg;
+  // ********** BMI-MEANING **********
+  .BMI-meaning {
+    height: 41.2rem;
+    margin: 27.7rem 0 9.6rem 0;
+    flex-direction: row;
+    gap: 7.5rem;
+    align-items: initial;
     position: relative;
-    top: 11.2rem;
-    border-radius: 0 3.2rem 3.2rem 0;
 
-    &::before {
-      content: "";
-      display: block;
-      background-image: url("../assets/images/image-man-eating-no-bg.png");
+    &__image-container {
       width: 31.9rem;
-      height: 41.2rem;
-      background-repeat: no-repeat;
-      position: absolute;
-      top: -11.2rem;
-      right: 0;
+      height: 29.9rem;
+      background: $color-man-eating-bg;
+      position: relative;
+      top: 11.2rem;
+      border-radius: 0 3.2rem 3.2rem 0;
+
+      &::before {
+        content: "";
+        display: block;
+        background-image: url("../assets/images/image-man-eating-no-bg.png");
+        width: 31.9rem;
+        height: 41.2rem;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: -11.2rem;
+        right: 0;
+      }
+    }
+
+    &__image {
+      display: none;
+    }
+
+    &__text {
+      padding: 0;
+      text-align: initial;
+      align-items: initial;
+      align-self: center;
+    }
+
+    &__header,
+    &__paragraph {
+      max-width: 33.1rem;
+      text-align: initial;
     }
   }
 
-  &__image {
-    display: none;
+  // ********** IMPROVE-BMI **********
+  .improve-BMI {
   }
 }
 

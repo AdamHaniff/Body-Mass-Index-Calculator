@@ -489,36 +489,47 @@ body {
   .imperial__input {
     max-width: 29.9rem;
   }
+  .BMI-meaning {
+    height: 41.2rem;
+    margin: 27.7rem 0 9.6rem 0;
+    flex-direction: row;
+    gap: 7.5rem;
+    align-items: initial;
+    position: relative;
+  }
+  .BMI-meaning__image-container {
+    width: 31.9rem;
+    height: 29.9rem;
+    background: #e7f5fe;
+    position: relative;
+    top: 11.2rem;
+    border-radius: 0 3.2rem 3.2rem 0;
+  }
+  .BMI-meaning__image-container::before {
+    content: "";
+    display: block;
+    background-image: url("../assets/images/image-man-eating-no-bg.png");
+    width: 31.9rem;
+    height: 41.2rem;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -11.2rem;
+    right: 0;
+  }
+  .BMI-meaning__image {
+    display: none;
+  }
+  .BMI-meaning__text {
+    padding: 0;
+    text-align: initial;
+    align-items: initial;
+    align-self: center;
+  }
+  .BMI-meaning__header, .BMI-meaning__paragraph {
+    max-width: 33.1rem;
+    text-align: initial;
+  }
 }
-.BMI-meaning {
-  margin-top: 27.7rem;
-  flex-direction: row;
-  align-items: initial;
-  position: relative;
-}
-.BMI-meaning__image-container {
-  width: 31.9rem;
-  height: 29.9rem;
-  background: #e7f5fe;
-  position: relative;
-  top: 11.2rem;
-  border-radius: 0 3.2rem 3.2rem 0;
-}
-.BMI-meaning__image-container::before {
-  content: "";
-  display: block;
-  background-image: url("../assets/images/image-man-eating-no-bg.png");
-  width: 31.9rem;
-  height: 41.2rem;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: -11.2rem;
-  right: 0;
-}
-.BMI-meaning__image {
-  display: none;
-}
-
 .hidden {
   display: none;
 }/*# sourceMappingURL=main.css.map */
