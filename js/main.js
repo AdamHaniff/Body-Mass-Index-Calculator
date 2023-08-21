@@ -1,3 +1,10 @@
+import {
+  INCHES_PER_FOOT,
+  POUNDS_PER_STONE,
+  MOBILE_MARGIN_TOP,
+  TABLET_MARGIN_TOP_METRIC,
+  TABLET_MARGIN_TOP_IMPERIAL,
+} from "./config.js";
 import { categorizeBMI } from "./helpers.js";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
@@ -20,8 +27,6 @@ const imperialStoneInput = document.getElementById("weightST");
 const imperialPoundsInput = document.getElementById("weightLBS");
 const imperialRadioBtn = document.getElementById("imperial");
 const radioContainer = document.querySelector(".BMI-details__units");
-const inchesPerFoot = 12;
-const poundsPerStone = 14;
 
 // FUNCTIONS
 function isValidMeasurements(measurements) {
@@ -96,15 +101,15 @@ function hideBMIWelcome() {
   const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
 
   if (isMobileLayout) {
-    bmiMeaning.style.marginTop = "55.2rem";
+    bmiMeaning.style.marginTop = MOBILE_MARGIN_TOP.result;
   }
 
-  if (isTabletLayout && metricRadioBtn.checked) {
-    bmiMeaning.style.marginTop = "29.6rem";
-  }
+  if (isTabletLayout) {
+    const marginTopConfig = metricRadioBtn.checked
+      ? TABLET_MARGIN_TOP_METRIC
+      : TABLET_MARGIN_TOP_IMPERIAL;
 
-  if (isTabletLayout && imperialRadioBtn.checked) {
-    bmiMeaning.style.marginTop = "41.6rem";
+    bmiMeaning.style.marginTop = marginTopConfig.result;
   }
 }
 
@@ -117,13 +122,13 @@ function displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
   }
 
   if (imperialRadioBtn.checked) {
-    const minWeightST = Math.floor(minIdealWeight / poundsPerStone);
+    const minWeightST = Math.floor(minIdealWeight / POUNDS_PER_STONE);
     const minWeightLBS = Math.floor(
-      minIdealWeight - minWeightST * poundsPerStone
+      minIdealWeight - minWeightST * POUNDS_PER_STONE
     );
-    const maxWeightST = Math.floor(maxIdealWeight / poundsPerStone);
+    const maxWeightST = Math.floor(maxIdealWeight / POUNDS_PER_STONE);
     const maxWeightLBS = Math.floor(
-      maxIdealWeight - maxWeightST * poundsPerStone
+      maxIdealWeight - maxWeightST * POUNDS_PER_STONE
     );
     const minWeightUnitLabel = minWeightLBS === 1 ? "lb" : "lbs";
     const maxWeightUnitLabel = maxWeightLBS === 1 ? "lb" : "lbs";
@@ -157,15 +162,15 @@ function displayBMIWelcome(measurements) {
     const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
 
     if (isMobileLayout) {
-      bmiMeaning.style.marginTop = "44rem";
+      bmiMeaning.style.marginTop = MOBILE_MARGIN_TOP.welcome;
     }
 
-    if (isTabletLayout && metricRadioBtn.checked) {
-      bmiMeaning.style.marginTop = "27.7rem";
-    }
+    if (isTabletLayout) {
+      const marginTopConfig = metricRadioBtn.checked
+        ? TABLET_MARGIN_TOP_METRIC
+        : TABLET_MARGIN_TOP_IMPERIAL;
 
-    if (isTabletLayout && imperialRadioBtn.checked) {
-      bmiMeaning.style.marginTop = "39.8rem";
+      bmiMeaning.style.marginTop = marginTopConfig.welcome;
     }
   }
 }
@@ -203,8 +208,8 @@ function calculateBMI() {
     weightLBS = parseFloat(imperialPoundsInput.value) || 0;
   }
 
-  const heightInInches = heightFT * inchesPerFoot + heightIN;
-  const weightInPounds = weightST * poundsPerStone + weightLBS;
+  const heightInInches = heightFT * INCHES_PER_FOOT + heightIN;
+  const weightInPounds = weightST * POUNDS_PER_STONE + weightLBS;
 
   const measurements = metricRadioBtn.checked
     ? { heightCM, weightKG }
@@ -249,7 +254,7 @@ function handleRadioBtnChange(e) {
     displayBMIWelcome({ heightCM, weightKG });
 
     if (isTabletLayout) {
-      bmiMeaning.style.marginTop = "39.8rem";
+      bmiMeaning.style.marginTop = TABLET_MARGIN_TOP_IMPERIAL.welcome;
     }
   }
 
@@ -258,6 +263,9 @@ function handleRadioBtnChange(e) {
   }
 }
 
+let isMobileLayoutDisplayed = false;
+let isTabletLayoutDisplayed = false;
+
 function handleViewportResize() {
   const viewportWidth = window.innerWidth;
   const isMobileLayout = viewportWidth < 768;
@@ -265,33 +273,33 @@ function handleViewportResize() {
   const isBMIResultDisplayed = !bmiResult.classList.contains("hidden");
   const isBMIWelcomeDisplayed = !bmiWelcome.classList.contains("hidden");
 
-  if (isMobileLayout) {
+  if (isMobileLayout && !isMobileLayoutDisplayed) {
+    isMobileLayoutDisplayed = true;
+    isTabletLayoutDisplayed = false;
+
     if (isBMIResultDisplayed) {
-      bmiMeaning.style.marginTop = "55.2rem";
+      bmiMeaning.style.marginTop = MOBILE_MARGIN_TOP.result;
     }
 
     if (isBMIWelcomeDisplayed) {
-      bmiMeaning.style.marginTop = "44rem";
+      bmiMeaning.style.marginTop = MOBILE_MARGIN_TOP.welcome;
     }
   }
 
-  if (isTabletLayout && metricRadioBtn.checked) {
+  if (isTabletLayout && !isTabletLayoutDisplayed) {
+    isTabletLayoutDisplayed = true;
+    isMobileLayoutDisplayed = false;
+
+    const marginTopConfig = metricRadioBtn.checked
+      ? TABLET_MARGIN_TOP_METRIC
+      : TABLET_MARGIN_TOP_IMPERIAL;
+
     if (isBMIWelcomeDisplayed) {
-      bmiMeaning.style.marginTop = "27.7rem";
+      bmiMeaning.style.marginTop = marginTopConfig.welcome;
     }
 
     if (isBMIResultDisplayed) {
-      bmiMeaning.style.marginTop = "29.6rem";
-    }
-  }
-
-  if (isTabletLayout && imperialRadioBtn.checked) {
-    if (isBMIWelcomeDisplayed) {
-      bmiMeaning.style.marginTop = "39.8rem";
-    }
-
-    if (isBMIResultDisplayed) {
-      bmiMeaning.style.marginTop = "41.6rem";
+      bmiMeaning.style.marginTop = marginTopConfig.result;
     }
   }
 }
