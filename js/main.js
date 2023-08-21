@@ -20,7 +20,6 @@ const imperialStoneInput = document.getElementById("weightST");
 const imperialPoundsInput = document.getElementById("weightLBS");
 const imperialRadioBtn = document.getElementById("imperial");
 const radioContainer = document.querySelector(".BMI-details__units");
-const viewportWidth = window.innerWidth;
 const inchesPerFoot = 12;
 const poundsPerStone = 14;
 
@@ -91,8 +90,22 @@ function calculateIdealWeightRange(heightMeasurement) {
 function hideBMIWelcome() {
   bmiWelcome.classList.add("hidden");
   bmiResult.classList.remove("hidden");
-  if (viewportWidth > 767) return;
-  bmiMeaning.style.marginTop = "55.2rem";
+
+  const viewportWidth = window.innerWidth;
+  const isMobileLayout = viewportWidth < 768;
+  const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
+
+  if (isMobileLayout) {
+    bmiMeaning.style.marginTop = "55.2rem";
+  }
+
+  if (isTabletLayout && metricRadioBtn.checked) {
+    bmiMeaning.style.marginTop = "29.6rem";
+  }
+
+  if (isTabletLayout && imperialRadioBtn.checked) {
+    bmiMeaning.style.marginTop = "41.6rem";
+  }
 }
 
 function displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
@@ -138,8 +151,22 @@ function displayBMIWelcome(measurements) {
   if (shouldDisplayBMIWelcome) {
     bmiResult.classList.add("hidden");
     bmiWelcome.classList.remove("hidden");
-    if (viewportWidth > 767) return;
-    bmiMeaning.style.marginTop = "44rem";
+
+    const viewportWidth = window.innerWidth;
+    const isMobileLayout = viewportWidth < 768;
+    const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
+
+    if (isMobileLayout) {
+      bmiMeaning.style.marginTop = "44rem";
+    }
+
+    if (isTabletLayout && metricRadioBtn.checked) {
+      bmiMeaning.style.marginTop = "27.7rem";
+    }
+
+    if (isTabletLayout && imperialRadioBtn.checked) {
+      bmiMeaning.style.marginTop = "39.8rem";
+    }
   }
 }
 
@@ -215,8 +242,15 @@ function handleRadioBtnChange(e) {
   toggleMeasurementsVisibility();
   clearMeasurementInputs();
 
+  const viewportWidth = window.innerWidth;
+  const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
+
   if (imperialBtnChecked) {
     displayBMIWelcome({ heightCM, weightKG });
+
+    if (isTabletLayout) {
+      bmiMeaning.style.marginTop = "39.8rem";
+    }
   }
 
   if (metricBtnChecked) {
@@ -238,3 +272,23 @@ imperialPoundsInput.addEventListener("input", calculateBMI);
 
 // Attach change event listener to radio container
 radioContainer.addEventListener("change", handleRadioBtnChange);
+
+// Resize event listener
+window.addEventListener("resize", function () {
+  const viewportWidth = window.innerWidth;
+  const isMobileLayout = viewportWidth < 768;
+  const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
+
+  if (isMobileLayout && !bmiResult.classList.contains("hidden")) {
+    bmiMeaning.style.marginTop = "55.2rem";
+  }
+
+  if (isMobileLayout && !bmiWelcome.classList.contains("hidden")) {
+    bmiMeaning.style.marginTop = "44rem";
+  }
+
+  // prettier-ignore
+  if(isTabletLayout && !bmiWelcome.classList.contains("hidden") && metricRadioBtn.checked) {
+    bmiMeaning.style.marginTop = "27.7rem"; 
+  }
+});
