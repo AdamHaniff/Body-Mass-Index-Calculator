@@ -258,6 +258,44 @@ function handleRadioBtnChange(e) {
   }
 }
 
+function handleViewportResize() {
+  const viewportWidth = window.innerWidth;
+  const isMobileLayout = viewportWidth < 768;
+  const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
+  const isBMIResultDisplayed = !bmiResult.classList.contains("hidden");
+  const isBMIWelcomeDisplayed = !bmiWelcome.classList.contains("hidden");
+
+  if (isMobileLayout) {
+    if (isBMIResultDisplayed) {
+      bmiMeaning.style.marginTop = "55.2rem";
+    }
+
+    if (isBMIWelcomeDisplayed) {
+      bmiMeaning.style.marginTop = "44rem";
+    }
+  }
+
+  if (isTabletLayout && metricRadioBtn.checked) {
+    if (isBMIWelcomeDisplayed) {
+      bmiMeaning.style.marginTop = "27.7rem";
+    }
+
+    if (isBMIResultDisplayed) {
+      bmiMeaning.style.marginTop = "29.6rem";
+    }
+  }
+
+  if (isTabletLayout && imperialRadioBtn.checked) {
+    if (isBMIWelcomeDisplayed) {
+      bmiMeaning.style.marginTop = "39.8rem";
+    }
+
+    if (isBMIResultDisplayed) {
+      bmiMeaning.style.marginTop = "41.6rem";
+    }
+  }
+}
+
 // EVENT LISTENERS
 
 // Attach input event listeners to metric inputs
@@ -273,22 +311,5 @@ imperialPoundsInput.addEventListener("input", calculateBMI);
 // Attach change event listener to radio container
 radioContainer.addEventListener("change", handleRadioBtnChange);
 
-// Resize event listener
-window.addEventListener("resize", function () {
-  const viewportWidth = window.innerWidth;
-  const isMobileLayout = viewportWidth < 768;
-  const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
-
-  if (isMobileLayout && !bmiResult.classList.contains("hidden")) {
-    bmiMeaning.style.marginTop = "55.2rem";
-  }
-
-  if (isMobileLayout && !bmiWelcome.classList.contains("hidden")) {
-    bmiMeaning.style.marginTop = "44rem";
-  }
-
-  // prettier-ignore
-  if(isTabletLayout && !bmiWelcome.classList.contains("hidden") && metricRadioBtn.checked) {
-    bmiMeaning.style.marginTop = "27.7rem"; 
-  }
-});
+// Attach resize event listener to window
+window.addEventListener("resize", handleViewportResize);
