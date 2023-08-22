@@ -554,6 +554,28 @@ body {
     text-align: initial;
     max-width: 58.2rem;
   }
+  .BMI-limitations {
+    padding: 9.6rem 4.3rem 9.6rem 3.9rem;
+  }
+  .BMI-limitations .limitations-text-container__paragraph {
+    max-width: 68.6rem;
+  }
+  .BMI-limitations__container {
+    width: 68.6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem 1.5rem;
+  }
+  .BMI-limitations__container .limitation-container:last-child {
+    grid-column: 1/-1;
+    justify-self: center;
+    max-width: 36.5rem;
+  }
+  .BMI-limitations .limitation-container {
+    max-width: 33.5rem;
+    padding: 3.2rem;
+    gap: 1.6rem;
+  }
 }
 .hidden {
   display: none;

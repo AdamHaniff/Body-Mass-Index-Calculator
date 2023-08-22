@@ -731,6 +731,36 @@ body {
       max-width: 58.2rem;
     }
   }
+
+  // ******** BMI-LIMITATIONS ********
+  .BMI-limitations {
+    padding: 9.6rem 4.3rem 9.6rem 3.9rem;
+
+    .limitations-text-container {
+      &__paragraph {
+        max-width: 68.6rem;
+      }
+    }
+
+    &__container {
+      width: 68.6rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.4rem 1.5rem;
+
+      & .limitation-container:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: 36.5rem;
+      }
+    }
+
+    .limitation-container {
+      max-width: 33.5rem;
+      padding: 3.2rem;
+      gap: 1.6rem;
+    }
+  }
 }
 
 // *** CLASS USED WITH JAVASCRIPT ***
