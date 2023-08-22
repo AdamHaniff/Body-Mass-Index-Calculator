@@ -428,7 +428,7 @@ body {
     flex-direction: column;
     align-items: center;
   }
-  .improve-container__paragraph {
+  .improve-container__header, .improve-container__paragraph {
     text-align: center;
   }
   .BMI-limitations {
@@ -528,6 +528,31 @@ body {
   .BMI-meaning__header, .BMI-meaning__paragraph {
     max-width: 33.1rem;
     text-align: initial;
+  }
+  .improve-BMI {
+    padding: 6rem 4.3rem 6rem 3.9rem;
+  }
+  .improve-container {
+    flex-direction: row;
+    gap: 4rem;
+    width: 68.6rem;
+    height: 10.1rem;
+  }
+  .improve-container__icon {
+    margin-bottom: 0;
+  }
+  .improve-container__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+  .improve-container__header {
+    text-align: initial;
+    margin-bottom: 0;
+  }
+  .improve-container__paragraph {
+    text-align: initial;
+    max-width: 58.2rem;
   }
 }
 .hidden {

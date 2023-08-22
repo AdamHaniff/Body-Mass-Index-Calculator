@@ -92,16 +92,13 @@ function calculateIdealWeightRange(heightMeasurement) {
   };
 }
 
-function hideBMIWelcome() {
-  bmiWelcome.classList.add("hidden");
-  bmiResult.classList.remove("hidden");
-
+function setBMIMeaningMarginTop(layoutType) {
   const viewportWidth = window.innerWidth;
   const isMobileLayout = viewportWidth < 768;
   const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
 
   if (isMobileLayout) {
-    bmiMeaning.style.marginTop = MOBILE_MARGIN_TOP.result;
+    bmiMeaning.style.marginTop = MOBILE_MARGIN_TOP[layoutType];
   }
 
   if (isTabletLayout) {
@@ -109,8 +106,15 @@ function hideBMIWelcome() {
       ? TABLET_MARGIN_TOP_METRIC
       : TABLET_MARGIN_TOP_IMPERIAL;
 
-    bmiMeaning.style.marginTop = marginTopConfig.result;
+    bmiMeaning.style.marginTop = marginTopConfig[layoutType];
   }
+}
+
+function hideBMIWelcome() {
+  bmiWelcome.classList.add("hidden");
+  bmiResult.classList.remove("hidden");
+
+  setBMIMeaningMarginTop("result");
 }
 
 function displayBMIResult(bmi, category, minIdealWeight, maxIdealWeight) {
@@ -157,21 +161,7 @@ function displayBMIWelcome(measurements) {
     bmiResult.classList.add("hidden");
     bmiWelcome.classList.remove("hidden");
 
-    const viewportWidth = window.innerWidth;
-    const isMobileLayout = viewportWidth < 768;
-    const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
-
-    if (isMobileLayout) {
-      bmiMeaning.style.marginTop = MOBILE_MARGIN_TOP.welcome;
-    }
-
-    if (isTabletLayout) {
-      const marginTopConfig = metricRadioBtn.checked
-        ? TABLET_MARGIN_TOP_METRIC
-        : TABLET_MARGIN_TOP_IMPERIAL;
-
-      bmiMeaning.style.marginTop = marginTopConfig.welcome;
-    }
+    setBMIMeaningMarginTop("welcome");
   }
 }
 
@@ -294,12 +284,12 @@ function handleViewportResize() {
       ? TABLET_MARGIN_TOP_METRIC
       : TABLET_MARGIN_TOP_IMPERIAL;
 
-    if (isBMIWelcomeDisplayed) {
-      bmiMeaning.style.marginTop = marginTopConfig.welcome;
-    }
-
     if (isBMIResultDisplayed) {
       bmiMeaning.style.marginTop = marginTopConfig.result;
+    }
+
+    if (isBMIWelcomeDisplayed) {
+      bmiMeaning.style.marginTop = marginTopConfig.welcome;
     }
   }
 }

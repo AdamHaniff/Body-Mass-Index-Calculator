@@ -559,6 +559,7 @@ body {
   .improve-container {
     @include center-element;
 
+    &__header,
     &__paragraph {
       text-align: center;
     }
@@ -701,6 +702,34 @@ body {
 
   // ********** IMPROVE-BMI **********
   .improve-BMI {
+    padding: 6rem 4.3rem 6rem 3.9rem;
+  }
+
+  .improve-container {
+    flex-direction: row;
+    gap: 4rem;
+    width: 68.6rem;
+    height: 10.1rem;
+
+    &__icon {
+      margin-bottom: 0;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+    }
+
+    &__header {
+      text-align: initial;
+      margin-bottom: 0;
+    }
+
+    &__paragraph {
+      text-align: initial;
+      max-width: 58.2rem;
+    }
   }
 }
 
