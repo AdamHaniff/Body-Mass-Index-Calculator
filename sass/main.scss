@@ -763,6 +763,85 @@ body {
   }
 }
 
+// *** 868px - 1439px MEDIA QUERY ****
+@media only screen and (min-width: 54.25em) {
+  // ********** BMI-MEANING **********
+  .BMI-meaning {
+    justify-content: center;
+
+    &__image-container {
+      width: 37.5rem;
+      height: auto;
+      background: initial;
+      position: initial;
+      top: initial;
+      border-radius: initial;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__image {
+      display: block;
+    }
+  }
+
+  // ********** IMPROVE-BMI **********
+  .improve-BMI {
+    align-items: center;
+  }
+}
+
+// ********* DESKTOP LAYOUT *********
+
+// ******* 1440px MEDIA QUERY *******
+@media only screen and (min-width: 90em) {
+  // ************* HEADER ************
+  .header {
+    width: 97.8rem;
+    height: 73.7rem;
+    margin-left: 2.4rem;
+    max-height: initial;
+    align-items: initial;
+    padding: 7.5rem 0 0 11.6rem;
+    position: relative;
+
+    &__logo {
+      width: 6.4rem;
+      height: 6.4rem;
+      margin-bottom: 13.1rem;
+    }
+
+    &__primary {
+      max-width: 56.4rem;
+      text-align: initial;
+      letter-spacing: -0.32rem;
+      margin-bottom: 3.5rem;
+      font-size: 6.4rem;
+      line-height: 7.04rem;
+    }
+
+    &__paragraph {
+      max-width: 46.5rem;
+      margin-bottom: initial;
+      text-align: initial;
+    }
+  }
+
+  // ********** BMI-DETAILS **********
+  .BMI-details {
+    width: 56.4rem;
+    max-width: initial;
+    position: absolute;
+    top: 18.2rem;
+    left: 71.2rem;
+
+    &__units {
+    }
+  }
+}
+
 // *** CLASS USED WITH JAVASCRIPT ***
 .hidden {
   display: none;

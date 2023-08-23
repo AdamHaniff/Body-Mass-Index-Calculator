@@ -577,6 +577,64 @@ body {
     gap: 1.6rem;
   }
 }
+@media only screen and (min-width: 54.25em) {
+  .BMI-meaning {
+    justify-content: center;
+  }
+  .BMI-meaning__image-container {
+    width: 37.5rem;
+    height: auto;
+    background: initial;
+    position: initial;
+    top: initial;
+    border-radius: initial;
+  }
+  .BMI-meaning__image-container::before {
+    display: none;
+  }
+  .BMI-meaning__image {
+    display: block;
+  }
+  .improve-BMI {
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 90em) {
+  .header {
+    width: 97.8rem;
+    height: 73.7rem;
+    margin-left: 2.4rem;
+    max-height: initial;
+    align-items: initial;
+    padding: 7.5rem 0 0 11.6rem;
+    position: relative;
+  }
+  .header__logo {
+    width: 6.4rem;
+    height: 6.4rem;
+    margin-bottom: 13.1rem;
+  }
+  .header__primary {
+    max-width: 56.4rem;
+    text-align: initial;
+    letter-spacing: -0.32rem;
+    margin-bottom: 3.5rem;
+    font-size: 6.4rem;
+    line-height: 7.04rem;
+  }
+  .header__paragraph {
+    max-width: 46.5rem;
+    margin-bottom: initial;
+    text-align: initial;
+  }
+  .BMI-details {
+    width: 56.4rem;
+    max-width: initial;
+    position: absolute;
+    top: 18.2rem;
+    left: 71.2rem;
+  }
+}
 .hidden {
   display: none;
 }/*# sourceMappingURL=main.css.map */
