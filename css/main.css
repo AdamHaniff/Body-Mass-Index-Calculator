@@ -599,6 +599,11 @@ body {
     align-items: center;
   }
 }
+@media only screen and (min-width: 62em) {
+  .BMI-details__radio-label:hover {
+    cursor: pointer;
+  }
+}
 @media only screen and (min-width: 90em) {
   .header {
     width: 97.8rem;
@@ -634,7 +639,30 @@ body {
     top: 18.2rem;
     left: 71.2rem;
   }
+  .BMI-details__units {
+    gap: 16.3rem;
+  }
 }
+.BMI-welcome {
+  max-width: 50rem;
+}
+
+.BMI-result {
+  max-width: 50rem;
+}
+.BMI-result__number {
+  letter-spacing: -0.32rem;
+  font-size: 6.4rem;
+  line-height: 7.04rem;
+}
+.BMI-result__paragraph {
+  max-width: 20.6rem;
+}
+
+.imperial__input {
+  max-width: 23.8rem;
+}
+
 .hidden {
   display: none;
 }/*# sourceMappingURL=main.css.map */

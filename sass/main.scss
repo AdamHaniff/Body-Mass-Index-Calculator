@@ -795,6 +795,15 @@ body {
 
 // ********* DESKTOP LAYOUT *********
 
+// ******* DESKTOP HOVER STATES ******
+// ******** 992px MEDIA QUERY ********
+@media only screen and (min-width: 62em) {
+  .BMI-details {
+    &__radio-label:hover {
+      cursor: pointer;
+    }
+  }
+}
 // ******* 1440px MEDIA QUERY *******
 @media only screen and (min-width: 90em) {
   // ************* HEADER ************
@@ -838,7 +847,35 @@ body {
     left: 71.2rem;
 
     &__units {
+      gap: 16.3rem;
     }
+  }
+}
+
+// *********** BMI-WELCOME ***********
+.BMI-welcome {
+  max-width: 50rem;
+}
+
+// ************ BMI-RESULT ***********
+.BMI-result {
+  max-width: 50rem;
+
+  &__number {
+    letter-spacing: -0.32rem;
+    font-size: 6.4rem;
+    line-height: 7.04rem;
+  }
+
+  &__paragraph {
+    max-width: 20.6rem;
+  }
+}
+
+// ****** IMPERIAL MEASUREMENTS ******
+.imperial {
+  &__input {
+    max-width: 23.8rem;
   }
 }
 
