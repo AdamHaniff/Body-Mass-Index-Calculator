@@ -802,6 +802,10 @@ body {
     &__radio-label:hover {
       cursor: pointer;
     }
+
+    &__radio-input:not(:checked) + &__radio-label &__radio-button:hover {
+      border: 0.1rem solid $color-radio-hover;
+    }
   }
 }
 // ******* 1440px MEDIA QUERY *******
@@ -850,32 +854,103 @@ body {
       gap: 16.3rem;
     }
   }
-}
 
-// *********** BMI-WELCOME ***********
-.BMI-welcome {
-  max-width: 50rem;
-}
-
-// ************ BMI-RESULT ***********
-.BMI-result {
-  max-width: 50rem;
-
-  &__number {
-    letter-spacing: -0.32rem;
-    font-size: 6.4rem;
-    line-height: 7.04rem;
+  // *********** BMI-WELCOME ***********
+  .BMI-welcome {
+    max-width: 50rem;
   }
 
-  &__paragraph {
-    max-width: 20.6rem;
-  }
-}
+  // ************ BMI-RESULT ***********
+  .BMI-result {
+    max-width: 50rem;
 
-// ****** IMPERIAL MEASUREMENTS ******
-.imperial {
-  &__input {
-    max-width: 23.8rem;
+    &__number {
+      letter-spacing: -0.32rem;
+      font-size: 6.4rem;
+      line-height: 7.04rem;
+    }
+
+    &__paragraph {
+      max-width: 20.6rem;
+    }
+  }
+
+  // ****** IMPERIAL MEASUREMENTS ******
+  .imperial {
+    &__input {
+      max-width: 23.8rem;
+    }
+  }
+
+  // *********** BMI-MEANING ***********
+  .BMI-meaning {
+    gap: 13.1rem;
+    height: auto;
+    padding: 6.5rem 0 9.6rem 0;
+    margin: 0;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 8.7rem;
+      height: 20rem;
+      background-image: url("../assets/images/pattern-curved-line-left.svg");
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 1.3rem;
+      right: 15.7rem;
+    }
+
+    &__image-container {
+      width: 56.4rem;
+      max-width: initial;
+    }
+
+    &__text {
+      align-self: initial;
+      position: relative;
+      top: 18.4rem;
+    }
+
+    &__header {
+      max-width: 46.5rem;
+      letter-spacing: -0.24rem;
+      margin-bottom: 3.5rem;
+      font-size: 4.8rem;
+      line-height: 5.28rem;
+    }
+
+    &__paragraph {
+      max-width: 46.5rem;
+    }
+  }
+
+  // *********** IMPROVE-BMI ***********
+  .improve-BMI {
+    width: 139.2rem;
+    border-radius: 3.5rem;
+    overflow: hidden;
+    flex-direction: row;
+    padding: 7.2rem 11.6rem 9.6rem;
+    margin: 0 auto;
+    align-items: initial;
+    gap: 3.2rem;
+  }
+
+  .improve-container {
+    flex-direction: column;
+    gap: 4.5rem;
+    width: 36.5rem;
+    height: auto;
+    align-items: start;
+
+    &__paragraph {
+      max-width: 36.5rem;
+    }
+  }
+
+  // ********* BMI-LIMITATIONS *********
+  .BMI-limitations {
   }
 }
 

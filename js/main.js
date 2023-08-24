@@ -4,6 +4,8 @@ import {
   MOBILE_MARGIN_TOP,
   TABLET_MARGIN_TOP_METRIC,
   TABLET_MARGIN_TOP_IMPERIAL,
+  DESKTOP_MARGIN_TOP_METRIC,
+  DESKTOP_MARGIN_TOP_IMPERIAL,
 } from "./config.js";
 import { categorizeBMI } from "./helpers.js";
 import "core-js/stable";
@@ -96,18 +98,23 @@ function setBMIMeaningMarginTop(layoutType) {
   const viewportWidth = window.innerWidth;
   const isMobileLayout = viewportWidth < 768;
   const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
+  const isDesktopLayout = viewportWidth > 1439;
+
+  let marginTopConfig;
 
   if (isMobileLayout) {
-    bmiMeaning.style.marginTop = MOBILE_MARGIN_TOP[layoutType];
-  }
-
-  if (isTabletLayout) {
-    const marginTopConfig = metricRadioBtn.checked
+    marginTopConfig = MOBILE_MARGIN_TOP;
+  } else if (isTabletLayout) {
+    marginTopConfig = metricRadioBtn.checked
       ? TABLET_MARGIN_TOP_METRIC
       : TABLET_MARGIN_TOP_IMPERIAL;
-
-    bmiMeaning.style.marginTop = marginTopConfig[layoutType];
+  } else if (isDesktopLayout) {
+    marginTopConfig = metricRadioBtn.checked
+      ? DESKTOP_MARGIN_TOP_METRIC
+      : DESKTOP_MARGIN_TOP_IMPERIAL;
   }
+
+  bmiMeaning.style.marginTop = marginTopConfig[layoutType];
 }
 
 function hideBMIWelcome() {
@@ -239,12 +246,17 @@ function handleRadioBtnChange(e) {
 
   const viewportWidth = window.innerWidth;
   const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
+  const isDesktopLayout = viewportWidth > 1439;
 
   if (imperialBtnChecked) {
     displayBMIWelcome({ heightCM, weightKG });
 
-    if (isTabletLayout) {
-      bmiMeaning.style.marginTop = TABLET_MARGIN_TOP_IMPERIAL.welcome;
+    if (isTabletLayout || isDesktopLayout) {
+      const imperialMarginTopConfig = isTabletLayout
+        ? TABLET_MARGIN_TOP_IMPERIAL
+        : DESKTOP_MARGIN_TOP_IMPERIAL;
+
+      bmiMeaning.style.marginTop = imperialMarginTopConfig.welcome;
     }
   }
 
@@ -255,43 +267,51 @@ function handleRadioBtnChange(e) {
 
 let isMobileLayoutDisplayed = false;
 let isTabletLayoutDisplayed = false;
+let isDesktopLayoutDisplayed = false;
 
 function handleViewportResize() {
   const viewportWidth = window.innerWidth;
   const isMobileLayout = viewportWidth < 768;
   const isTabletLayout = viewportWidth > 767 && viewportWidth < 1440;
+  const isDesktopLayout = viewportWidth > 1439;
   const isBMIResultDisplayed = !bmiResult.classList.contains("hidden");
   const isBMIWelcomeDisplayed = !bmiWelcome.classList.contains("hidden");
 
-  if (isMobileLayout && !isMobileLayoutDisplayed) {
-    isMobileLayoutDisplayed = true;
-    isTabletLayoutDisplayed = false;
+  const layouts = [
+    {
+      condition: isMobileLayout,
+      marginTopConfig: MOBILE_MARGIN_TOP,
+      isDisplayed: isMobileLayoutDisplayed,
+    },
+    {
+      condition: isTabletLayout,
+      marginTopConfig: metricRadioBtn.checked
+        ? TABLET_MARGIN_TOP_METRIC
+        : TABLET_MARGIN_TOP_IMPERIAL,
+      isDisplayed: isTabletLayoutDisplayed,
+    },
+    {
+      condition: isDesktopLayout,
+      marginTopConfig: metricRadioBtn.checked
+        ? DESKTOP_MARGIN_TOP_METRIC
+        : DESKTOP_MARGIN_TOP_IMPERIAL,
+      isDisplayed: isDesktopLayoutDisplayed,
+    },
+  ];
 
-    if (isBMIResultDisplayed) {
-      bmiMeaning.style.marginTop = MOBILE_MARGIN_TOP.result;
+  layouts.forEach((layout) => {
+    if (layout.condition && !layout.isDisplayed) {
+      isMobileLayoutDisplayed = layout.condition === isMobileLayout;
+      isTabletLayoutDisplayed = layout.condition === isTabletLayout;
+      isDesktopLayoutDisplayed = layout.condition === isDesktopLayout;
+
+      if (isBMIResultDisplayed || isBMIWelcomeDisplayed) {
+        bmiMeaning.style.marginTop = isBMIResultDisplayed
+          ? layout.marginTopConfig.result
+          : layout.marginTopConfig.welcome;
+      }
     }
-
-    if (isBMIWelcomeDisplayed) {
-      bmiMeaning.style.marginTop = MOBILE_MARGIN_TOP.welcome;
-    }
-  }
-
-  if (isTabletLayout && !isTabletLayoutDisplayed) {
-    isTabletLayoutDisplayed = true;
-    isMobileLayoutDisplayed = false;
-
-    const marginTopConfig = metricRadioBtn.checked
-      ? TABLET_MARGIN_TOP_METRIC
-      : TABLET_MARGIN_TOP_IMPERIAL;
-
-    if (isBMIResultDisplayed) {
-      bmiMeaning.style.marginTop = marginTopConfig.result;
-    }
-
-    if (isBMIWelcomeDisplayed) {
-      bmiMeaning.style.marginTop = marginTopConfig.welcome;
-    }
-  }
+  });
 }
 
 // EVENT LISTENERS

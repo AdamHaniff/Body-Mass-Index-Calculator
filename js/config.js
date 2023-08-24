@@ -16,10 +16,22 @@ const TABLET_MARGIN_TOP_IMPERIAL = {
   result: "41.6rem",
 };
 
+const DESKTOP_MARGIN_TOP_METRIC = {
+  welcome: 0,
+  result: "3.6rem",
+};
+
+const DESKTOP_MARGIN_TOP_IMPERIAL = {
+  welcome: "12.1rem",
+  result: "15.7rem",
+};
+
 export {
   INCHES_PER_FOOT,
   POUNDS_PER_STONE,
   MOBILE_MARGIN_TOP,
   TABLET_MARGIN_TOP_METRIC,
   TABLET_MARGIN_TOP_IMPERIAL,
+  DESKTOP_MARGIN_TOP_METRIC,
+  DESKTOP_MARGIN_TOP_IMPERIAL,
 };
