@@ -703,7 +703,8 @@ body {
     border-radius: 3.5rem;
     overflow: hidden;
     flex-direction: row;
-    padding: 7.2rem 11.6rem 9.6rem;
+    justify-content: center;
+    padding: 7.2rem 0 9.6rem;
     margin: 0 auto;
     align-items: initial;
     gap: 3.2rem;
@@ -717,6 +718,24 @@ body {
   }
   .improve-container__paragraph {
     max-width: 36.5rem;
+  }
+  .BMI-limitations {
+    padding: 12rem 14rem;
+    align-items: initial;
+    flex-direction: row;
+    gap: 0;
+  }
+  .BMI-limitations .limitations-text-container {
+    text-align: initial;
+    gap: 3.5rem;
+  }
+  .BMI-limitations .limitations-text-container__header {
+    letter-spacing: -0.24rem;
+    font-size: 4.8rem;
+    line-height: 5.28rem;
+  }
+  .BMI-limitations .limitations-text-container__paragraph {
+    max-width: 56.4rem;
   }
 }
 .hidden {
