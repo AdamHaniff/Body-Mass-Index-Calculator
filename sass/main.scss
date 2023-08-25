@@ -952,10 +952,12 @@ body {
 
   // ********* BMI-LIMITATIONS *********
   .BMI-limitations {
+    height: 94.4rem;
     padding: 12rem 14rem;
     align-items: initial;
     flex-direction: row;
     gap: 0;
+    position: relative;
 
     .limitations-text-container {
       text-align: initial;
@@ -969,6 +971,53 @@ body {
 
       &__paragraph {
         max-width: 56.4rem;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 9.4rem;
+        height: 12.2rem;
+        background-image: url("../assets/images/pattern-curved-line-right.svg");
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 37.1rem;
+        left: 30.5rem;
+      }
+    }
+
+    &__container {
+      display: initial;
+      width: initial;
+    }
+
+    .limitation-container {
+      position: absolute;
+      max-width: 36.5rem;
+
+      &:first-of-type {
+        top: 12rem;
+        left: 83.6rem;
+      }
+
+      &:nth-of-type(2) {
+        top: 38.4rem;
+        left: 53.8rem;
+      }
+
+      &:nth-of-type(3) {
+        top: 38.4rem;
+        left: 93.5rem;
+      }
+
+      &:nth-of-type(4) {
+        top: 59.2rem;
+        left: 33.9rem;
+      }
+
+      &:last-of-type {
+        top: 59.2rem;
+        left: 73.6rem;
       }
     }
   }

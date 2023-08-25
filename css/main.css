@@ -720,10 +720,12 @@ body {
     max-width: 36.5rem;
   }
   .BMI-limitations {
+    height: 94.4rem;
     padding: 12rem 14rem;
     align-items: initial;
     flex-direction: row;
     gap: 0;
+    position: relative;
   }
   .BMI-limitations .limitations-text-container {
     text-align: initial;
@@ -736,6 +738,45 @@ body {
   }
   .BMI-limitations .limitations-text-container__paragraph {
     max-width: 56.4rem;
+  }
+  .BMI-limitations .limitations-text-container::after {
+    content: "";
+    display: block;
+    width: 9.4rem;
+    height: 12.2rem;
+    background-image: url("../assets/images/pattern-curved-line-right.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 37.1rem;
+    left: 30.5rem;
+  }
+  .BMI-limitations__container {
+    display: initial;
+    width: initial;
+  }
+  .BMI-limitations .limitation-container {
+    position: absolute;
+    max-width: 36.5rem;
+  }
+  .BMI-limitations .limitation-container:first-of-type {
+    top: 12rem;
+    left: 83.6rem;
+  }
+  .BMI-limitations .limitation-container:nth-of-type(2) {
+    top: 38.4rem;
+    left: 53.8rem;
+  }
+  .BMI-limitations .limitation-container:nth-of-type(3) {
+    top: 38.4rem;
+    left: 93.5rem;
+  }
+  .BMI-limitations .limitation-container:nth-of-type(4) {
+    top: 59.2rem;
+    left: 33.9rem;
+  }
+  .BMI-limitations .limitation-container:last-of-type {
+    top: 59.2rem;
+    left: 73.6rem;
   }
 }
 .hidden {
