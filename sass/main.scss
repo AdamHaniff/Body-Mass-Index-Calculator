@@ -113,6 +113,13 @@ $font-weight-bold: 700;
   color: $color-bmi-result-text;
 }
 
+@mixin curved-line-styles {
+  content: "";
+  display: block;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
 @mixin center-element {
   display: flex;
   flex-direction: column;
@@ -808,6 +815,7 @@ body {
     }
   }
 }
+
 // ******* 1440px MEDIA QUERY *******
 @media only screen and (min-width: 90em) {
   // ************* HEADER ************
@@ -890,13 +898,10 @@ body {
     margin: 0;
 
     &::before {
-      content: "";
-      display: block;
+      @include curved-line-styles;
       width: 8.7rem;
       height: 20rem;
       background-image: url("../assets/images/pattern-curved-line-left.svg");
-      background-repeat: no-repeat;
-      position: absolute;
       top: 1.3rem;
       right: 15.7rem;
     }
@@ -956,7 +961,7 @@ body {
     padding: 12rem 14rem;
     align-items: initial;
     flex-direction: row;
-    gap: 0;
+    gap: initial;
     position: relative;
 
     .limitations-text-container {
@@ -974,13 +979,10 @@ body {
       }
 
       &::after {
-        content: "";
-        display: block;
+        @include curved-line-styles;
         width: 9.4rem;
         height: 12.2rem;
         background-image: url("../assets/images/pattern-curved-line-right.svg");
-        background-repeat: no-repeat;
-        position: absolute;
         top: 37.1rem;
         left: 30.5rem;
       }
@@ -989,6 +991,7 @@ body {
     &__container {
       display: initial;
       width: initial;
+      width: 60rem;
     }
 
     .limitation-container {
@@ -1020,6 +1023,20 @@ body {
         left: 73.6rem;
       }
     }
+  }
+}
+
+// ** GREATER THAN 1539px MEDIA QUERY **
+@media only screen and (min-width: 96.25em) {
+  // ************* HEADER **************
+  .header {
+    margin-left: 8vw;
+  }
+
+  // ********* BMI-LIMITATIONS *********
+  .BMI-limitations {
+    width: 152.3rem;
+    margin: 0 auto;
   }
 }
 

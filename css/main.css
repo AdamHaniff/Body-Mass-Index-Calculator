@@ -671,11 +671,11 @@ body {
   .BMI-meaning::before {
     content: "";
     display: block;
+    background-repeat: no-repeat;
+    position: absolute;
     width: 8.7rem;
     height: 20rem;
     background-image: url("../assets/images/pattern-curved-line-left.svg");
-    background-repeat: no-repeat;
-    position: absolute;
     top: 1.3rem;
     right: 15.7rem;
   }
@@ -724,7 +724,7 @@ body {
     padding: 12rem 14rem;
     align-items: initial;
     flex-direction: row;
-    gap: 0;
+    gap: initial;
     position: relative;
   }
   .BMI-limitations .limitations-text-container {
@@ -742,17 +742,18 @@ body {
   .BMI-limitations .limitations-text-container::after {
     content: "";
     display: block;
+    background-repeat: no-repeat;
+    position: absolute;
     width: 9.4rem;
     height: 12.2rem;
     background-image: url("../assets/images/pattern-curved-line-right.svg");
-    background-repeat: no-repeat;
-    position: absolute;
     top: 37.1rem;
     left: 30.5rem;
   }
   .BMI-limitations__container {
     display: initial;
     width: initial;
+    width: 60rem;
   }
   .BMI-limitations .limitation-container {
     position: absolute;
@@ -777,6 +778,15 @@ body {
   .BMI-limitations .limitation-container:last-of-type {
     top: 59.2rem;
     left: 73.6rem;
+  }
+}
+@media only screen and (min-width: 96.25em) {
+  .header {
+    margin-left: 8vw;
+  }
+  .BMI-limitations {
+    width: 152.3rem;
+    margin: 0 auto;
   }
 }
 .hidden {
