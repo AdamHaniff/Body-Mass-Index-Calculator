@@ -104,11 +104,15 @@ function setBMIMeaningMarginTop(layoutType) {
 
   if (isMobileLayout) {
     marginTopConfig = MOBILE_MARGIN_TOP;
-  } else if (isTabletLayout) {
+  }
+
+  if (isTabletLayout) {
     marginTopConfig = metricRadioBtn.checked
       ? TABLET_MARGIN_TOP_METRIC
       : TABLET_MARGIN_TOP_IMPERIAL;
-  } else if (isDesktopLayout) {
+  }
+
+  if (isDesktopLayout) {
     marginTopConfig = metricRadioBtn.checked
       ? DESKTOP_MARGIN_TOP_METRIC
       : DESKTOP_MARGIN_TOP_IMPERIAL;
@@ -283,6 +287,7 @@ function handleViewportResize() {
       marginTopConfig: MOBILE_MARGIN_TOP,
       isDisplayed: isMobileLayoutDisplayed,
     },
+
     {
       condition: isTabletLayout,
       marginTopConfig: metricRadioBtn.checked
@@ -290,6 +295,7 @@ function handleViewportResize() {
         : TABLET_MARGIN_TOP_IMPERIAL,
       isDisplayed: isTabletLayoutDisplayed,
     },
+
     {
       condition: isDesktopLayout,
       marginTopConfig: metricRadioBtn.checked
@@ -316,18 +322,18 @@ function handleViewportResize() {
 
 // EVENT LISTENERS
 
-// Attach input event listeners to metric inputs
+// Attach 'input' event listener to metric inputs
 metricHeightInput.addEventListener("input", calculateBMI);
 metricWeightInput.addEventListener("input", calculateBMI);
 
-// Attach input event listeners to imperial inputs
+// Attach 'input' event listener to imperial inputs
 imperialFeetInput.addEventListener("input", calculateBMI);
 imperialInchesInput.addEventListener("input", calculateBMI);
 imperialStoneInput.addEventListener("input", calculateBMI);
 imperialPoundsInput.addEventListener("input", calculateBMI);
 
-// Attach change event listener to radio container
+// Attach 'change' event listener to radio container
 radioContainer.addEventListener("change", handleRadioBtnChange);
 
-// Attach resize event listener to window
+// Attach 'resize' event listener to window
 window.addEventListener("resize", handleViewportResize);

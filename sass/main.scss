@@ -548,6 +548,12 @@ body {
 
 // **** 376px - 767px MEDIA QUERY ****
 @media only screen and (min-width: 23.5em) {
+  // ************* HEADER *************
+  .header {
+    max-width: 57.15rem;
+    margin: 0 auto;
+  }
+
   // ********** BMI-MEANING **********
   .BMI-meaning {
     @include center-element;
@@ -584,6 +590,7 @@ body {
 @media only screen and (min-width: 48em) {
   // ************* HEADER ************
   .header {
+    max-width: 110.4rem;
     padding: 3.2rem 0 0;
 
     &__logo {
@@ -820,6 +827,8 @@ body {
 @media only screen and (min-width: 90em) {
   // ************* HEADER ************
   .header {
+    max-width: initial;
+    margin: initial;
     width: 97.8rem;
     height: 73.7rem;
     margin-left: 2.4rem;
