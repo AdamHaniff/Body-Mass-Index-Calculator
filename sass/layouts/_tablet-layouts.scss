@@ -1,0 +1,222 @@
+// ********** TABLET LAYOUTS **********
+
+// ******** 768px MEDIA QUERY ********
+@media only screen and (min-width: 48em) {
+  // ************* HEADER ************
+  .header {
+    max-width: 110.4rem;
+    padding: 3.2rem 0 0;
+
+    &__logo {
+      margin-bottom: 4rem;
+    }
+
+    &__primary {
+      max-width: 68.6rem;
+    }
+
+    &__paragraph {
+      max-width: 68.6rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  // ********** BMI-DETAILS **********
+  .BMI-details {
+    max-width: 68.6rem;
+    width: 68.6rem;
+    padding: 3.2rem;
+    gap: 3.2rem;
+
+    &__units {
+      gap: 22.4rem;
+    }
+  }
+
+  // ****** METRIC MEASUREMENTS ******
+  .metric {
+    &-measurements {
+      flex-direction: row;
+      gap: 2.4rem;
+    }
+  }
+
+  // ********** BMI-WELCOME **********
+  .BMI-welcome {
+    max-width: 62.2rem;
+    padding: 3.2rem;
+    border-radius: 1.6rem 99.9rem 99.9rem 1.6rem;
+  }
+
+  // ********** BMI-RESULT ***********
+  .BMI-result {
+    max-width: 62.2rem;
+    border-radius: 1.6rem 99.9rem 99.9rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__number {
+      margin-bottom: 0;
+    }
+
+    &__paragraph {
+      max-width: 26.7rem;
+    }
+  }
+
+  // ***** IMPERIAL MEASUREMENTS *****
+  .imperial {
+    &-measurements {
+      gap: 2.4rem;
+    }
+
+    &__input-containers {
+      gap: 2.4rem;
+    }
+
+    &__input {
+      max-width: 29.9rem;
+    }
+  }
+
+  // ********** BMI-MEANING **********
+  .BMI-meaning {
+    height: 41.2rem;
+    margin: 27.7rem 0 9.6rem 0;
+    flex-direction: row;
+    gap: 7.5rem;
+    align-items: initial;
+    position: relative;
+
+    &__image-container {
+      width: 31.9rem;
+      height: 29.9rem;
+      background: $color-man-eating-bg;
+      position: relative;
+      top: 11.2rem;
+      border-radius: 0 3.2rem 3.2rem 0;
+
+      &::before {
+        content: "";
+        display: block;
+        background-image: url("../assets/images/image-man-eating-no-bg.png");
+        width: 31.9rem;
+        height: 41.2rem;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: -11.2rem;
+        right: 0;
+      }
+    }
+
+    &__image {
+      display: none;
+    }
+
+    &__text {
+      padding: 0;
+      text-align: initial;
+      align-items: initial;
+      align-self: center;
+    }
+
+    &__header,
+    &__paragraph {
+      max-width: 33.1rem;
+      text-align: initial;
+    }
+  }
+
+  // ********** IMPROVE-BMI **********
+  .improve-BMI {
+    padding: 6rem 4.3rem 6rem 3.9rem;
+  }
+
+  .improve-container {
+    flex-direction: row;
+    gap: 4rem;
+    width: 68.6rem;
+    height: 10.1rem;
+
+    &__icon {
+      margin-bottom: 0;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+    }
+
+    &__header {
+      text-align: initial;
+      margin-bottom: 0;
+    }
+
+    &__paragraph {
+      text-align: initial;
+      max-width: 58.2rem;
+    }
+  }
+
+  // ******** BMI-LIMITATIONS ********
+  .BMI-limitations {
+    padding: 9.6rem 4.3rem 9.6rem 3.9rem;
+
+    .limitations-text-container {
+      &__paragraph {
+        max-width: 68.6rem;
+      }
+    }
+
+    &__container {
+      width: 68.6rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.4rem 1.5rem;
+
+      & .limitation-container:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: 36.5rem;
+      }
+    }
+
+    .limitation-container {
+      max-width: 33.5rem;
+      padding: 3.2rem;
+      gap: 1.6rem;
+    }
+  }
+}
+
+// *** 868px - 1439px MEDIA QUERY ****
+@media only screen and (min-width: 54.25em) {
+  // ********** BMI-MEANING **********
+  .BMI-meaning {
+    justify-content: center;
+
+    &__image-container {
+      width: 37.5rem;
+      height: auto;
+      background: initial;
+      position: initial;
+      top: initial;
+      border-radius: initial;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__image {
+      display: block;
+    }
+  }
+
+  // ********** IMPROVE-BMI **********
+  .improve-BMI {
+    align-items: center;
+  }
+}

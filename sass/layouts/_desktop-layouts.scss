@@ -1,0 +1,241 @@
+// ********* DESKTOP LAYOUTS *********
+
+// ******* DESKTOP HOVER STATES ******
+// ******** 992px MEDIA QUERY ********
+@media only screen and (min-width: 62em) {
+  .BMI-details {
+    &__radio-label:hover {
+      cursor: pointer;
+    }
+
+    &__radio-input:not(:checked) + &__radio-label &__radio-button:hover {
+      border: 0.1rem solid $color-radio-hover;
+    }
+  }
+}
+
+// ******* 1440px MEDIA QUERY *******
+@media only screen and (min-width: 90em) {
+  // ************* HEADER ************
+  .header {
+    max-width: initial;
+    margin: initial;
+    width: 97.8rem;
+    height: 73.7rem;
+    margin-left: 2.4rem;
+    max-height: initial;
+    align-items: initial;
+    padding: 7.5rem 0 0 11.6rem;
+    position: relative;
+
+    &__logo {
+      width: 6.4rem;
+      height: 6.4rem;
+      margin-bottom: 13.1rem;
+    }
+
+    &__primary {
+      max-width: 56.4rem;
+      text-align: initial;
+      letter-spacing: -0.32rem;
+      margin-bottom: 3.5rem;
+      font-size: 6.4rem;
+      line-height: 7.04rem;
+    }
+
+    &__paragraph {
+      max-width: 46.5rem;
+      margin-bottom: initial;
+      text-align: initial;
+    }
+  }
+
+  // ********** BMI-DETAILS **********
+  .BMI-details {
+    width: 56.4rem;
+    max-width: initial;
+    position: absolute;
+    top: 18.2rem;
+    left: 71.2rem;
+
+    &__units {
+      gap: 16.3rem;
+    }
+  }
+
+  // *********** BMI-WELCOME ***********
+  .BMI-welcome {
+    max-width: 50rem;
+  }
+
+  // ************ BMI-RESULT ***********
+  .BMI-result {
+    max-width: 50rem;
+
+    &__number {
+      letter-spacing: -0.32rem;
+      font-size: 6.4rem;
+      line-height: 7.04rem;
+    }
+
+    &__paragraph {
+      max-width: 20.6rem;
+    }
+  }
+
+  // ****** IMPERIAL MEASUREMENTS ******
+  .imperial {
+    &__input {
+      max-width: 23.8rem;
+    }
+  }
+
+  // *********** BMI-MEANING ***********
+  .BMI-meaning {
+    gap: 13.1rem;
+    height: auto;
+    padding: 6.5rem 0 9.6rem 0;
+    margin: 0;
+
+    &::before {
+      @include curved-line-styles;
+      width: 8.7rem;
+      height: 20rem;
+      background-image: url("../assets/images/pattern-curved-line-left.svg");
+      top: 1.3rem;
+      right: 15.7rem;
+    }
+
+    &__image-container {
+      width: 56.4rem;
+      max-width: initial;
+    }
+
+    &__text {
+      align-self: initial;
+      position: relative;
+      top: 18.4rem;
+    }
+
+    &__header {
+      max-width: 46.5rem;
+      letter-spacing: -0.24rem;
+      margin-bottom: 3.5rem;
+      font-size: 4.8rem;
+      line-height: 5.28rem;
+    }
+
+    &__paragraph {
+      max-width: 46.5rem;
+    }
+  }
+
+  // *********** IMPROVE-BMI ***********
+  .improve-BMI {
+    width: 139.2rem;
+    border-radius: 3.5rem;
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: center;
+    padding: 7.2rem 0 9.6rem;
+    margin: 0 auto;
+    align-items: initial;
+    gap: 3.2rem;
+  }
+
+  .improve-container {
+    flex-direction: column;
+    gap: 4.5rem;
+    width: 36.5rem;
+    height: auto;
+    align-items: start;
+
+    &__paragraph {
+      max-width: 36.5rem;
+    }
+  }
+
+  // ********* BMI-LIMITATIONS *********
+  .BMI-limitations {
+    height: 94.4rem;
+    padding: 12rem 14rem;
+    align-items: initial;
+    flex-direction: row;
+    gap: initial;
+    position: relative;
+
+    .limitations-text-container {
+      text-align: initial;
+      gap: 3.5rem;
+
+      &__header {
+        letter-spacing: -0.24rem;
+        font-size: 4.8rem;
+        line-height: 5.28rem;
+      }
+
+      &__paragraph {
+        max-width: 56.4rem;
+      }
+
+      &::after {
+        @include curved-line-styles;
+        width: 9.4rem;
+        height: 12.2rem;
+        background-image: url("../assets/images/pattern-curved-line-right.svg");
+        top: 37.1rem;
+        left: 30.5rem;
+      }
+    }
+
+    &__container {
+      display: initial;
+      width: initial;
+      width: 60rem;
+    }
+
+    .limitation-container {
+      position: absolute;
+      max-width: 36.5rem;
+
+      &:first-of-type {
+        top: 12rem;
+        left: 83.6rem;
+      }
+
+      &:nth-of-type(2) {
+        top: 38.4rem;
+        left: 53.8rem;
+      }
+
+      &:nth-of-type(3) {
+        top: 38.4rem;
+        left: 93.5rem;
+      }
+
+      &:nth-of-type(4) {
+        top: 59.2rem;
+        left: 33.9rem;
+      }
+
+      &:last-of-type {
+        top: 59.2rem;
+        left: 73.6rem;
+      }
+    }
+  }
+}
+
+// ** GREATER THAN 1539px MEDIA QUERY **
+@media only screen and (min-width: 96.25em) {
+  // ************* HEADER **************
+  .header {
+    margin-left: 8vw;
+  }
+
+  // ********* BMI-LIMITATIONS *********
+  .BMI-limitations {
+    width: 152.3rem;
+    margin: 0 auto;
+  }
+}

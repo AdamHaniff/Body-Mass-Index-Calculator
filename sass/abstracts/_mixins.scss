@@ -1,0 +1,74 @@
+// ************* MIXINS **************
+@mixin measurements-styles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+@mixin measurements-labels {
+  color: $color-height-text;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+}
+
+@mixin measurements-inputs {
+  padding: 2rem 2.4rem;
+  border-radius: 1.2rem;
+  border: 0.1rem solid $color-input-default-border;
+  color: $color-input-number;
+  font-family: $font-primary;
+  font-size: 2.4rem;
+  font-weight: $font-weight-semiBold;
+  letter-spacing: -0.12rem;
+}
+
+@mixin measurements-placeholders {
+  color: rgba($color-input-placeholder, 0.25);
+  font-family: $font-primary;
+  font-size: 2.4rem;
+  font-weight: $font-weight-semiBold;
+  letter-spacing: -0.12rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin measurements-focus-styles {
+  border: 0.1rem solid $color-input-active-border;
+  outline: none;
+}
+
+@mixin measurements-invalid-styles {
+  border: 0.1rem solid $color-input-error-border;
+}
+
+@mixin measurements-units {
+  color: $color-input-unit;
+  font-size: 2.4rem;
+  font-weight: $font-weight-semiBold;
+  letter-spacing: -0.12rem;
+  position: absolute;
+  top: 50%;
+  right: 2.5rem;
+  transform: translateY(-50%);
+}
+
+@mixin BMI-welcome-result-styles {
+  max-width: 28rem;
+  border-radius: 1.6rem;
+  background: $color-bmi-result-bg;
+  color: $color-bmi-result-text;
+}
+
+@mixin curved-line-styles {
+  content: "";
+  display: block;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+@mixin center-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
